@@ -38,3 +38,13 @@ python wp.py check                          חיבור + ספירת עמודים
 python wp.py count wc/v3/products           ספירה בראוט מסוים
 python wp.py get wp/v2/pages?per_page=5     קריאת JSON גולמי
 ```
+
+## בדיקות READ ONLY
+`check-about.ps1` — אימות עמוד `/אודות/` מול 9 המוקדים. לא נוגע באתר, fetch אנונימי בלבד.
+```
+powershell -ExecutionPolicy Bypass -File .\check-about.ps1
+```
+
+## הערה על קידוד
+כל קובץ `.ps1` כאן נשמר **UTF-8 עם BOM**. Windows PowerShell 5.1 קורא קובץ UTF-8 בלי BOM
+כ-ANSI ומשבש את העברית שבתוכו. אם עורכים קובץ — לשמור עם BOM.

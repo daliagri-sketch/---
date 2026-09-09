@@ -1,4 +1,4 @@
-# setup.ps1 - הקמת סביבת העבודה לניהול daliagrinbaum.co.il
+﻿# setup.ps1 - הקמת סביבת העבודה לניהול daliagrinbaum.co.il
 # הרצה:  powershell -ExecutionPolicy Bypass -File .\setup.ps1
 $ErrorActionPreference = 'Stop'
 
