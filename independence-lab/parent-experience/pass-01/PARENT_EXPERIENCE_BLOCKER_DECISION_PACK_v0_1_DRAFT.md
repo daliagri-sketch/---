@@ -222,3 +222,17 @@ IMPL shows each state as a screen title, a canonical message and the allowed act
 | TG-02 | W6 | PRODUCT + CODE | — |
 
 **Missing input that may close several items at once:** `ENGINE_ADAPTER_CONTRACT_v0_10.md` (canonical unified contract). 06 has seen only the HOME reconstruction derived from it.
+
+---
+
+## Addendum (02.10.2026) · Blocker source reconciliation after reading ENGINE_ADAPTER_CONTRACT_v0_10
+
+Full trace is in `PARENT_EXPERIENCE_TECHNICAL_AUDIT_4499671_v0_1_DRAFT` §3.
+
+| Item | Status | Remaining open question |
+|---|---|---|
+| P6 | **PARTIALLY CLOSED.** Closed only by the repo copy of the contract, §24.5 | Whether uncertainty is shown on KEEP. The source of the KEEP reflection lines (Parent-Learning Bank LH-B2 v0.3, not found) |
+| P13 | **PARTIALLY CLOSED.** Closed only by the repo copy of the contract, §24.5 | The post-CTA path (OD-P1-09; runtime RT-01 is an error dead end). LH FADE lines. The point labels and CTA string have no document source |
+| P11 | **OPEN** | Contract §24.4 (both copies) sets presentation = null. The shipped titles and messages have no document source |
+
+**Precondition for all three:** the Drive canonical contract v0.10 lacks §24.5. Main CT must decide which copy is canonical for PR-F. The other items (P7, P8, P9, P10, TG-02) are unchanged by the contract.

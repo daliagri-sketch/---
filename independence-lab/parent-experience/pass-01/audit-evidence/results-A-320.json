@@ -1,0 +1,1717 @@
+[
+ {
+  "tag": "A01-welcome",
+  "width": 320,
+  "text": "היום | פחות עזרה. יותר עצמאות. | מתחילים מרגע אחד בבית. | מתחילים",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A02-trust",
+  "width": 320,
+  "text": "היום | לפני שבונים תכנית, | בודקים מה הילד כבר יודע לעשות בעצמו. | מה כבר הולך בלי עזרה, | מה בבית מקל או מפריע, | ומה אתם עושים כשזה לא קורה. | ממשיכים",
+  "buttons": [
+   "[ ] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A03-setup-empty",
+  "width": 320,
+  "text": "היום | כמה פרטים קצרים | נתחיל בשם ובגיל. זה מספיק לשלב הזה. | שם הילד או כינוי | גיל | 4 | 5 | 6 | 7 | ממשיכים",
+  "buttons": [
+   "[X] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "ממשיכים",
+     "r": 3.14,
+     "fs": "18px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "4",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "5",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "6",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "7",
+     "w": 13,
+     "h": 13
+    }
+   ],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A04-setup-filled",
+  "width": 320,
+  "text": "היום | כמה פרטים קצרים | נתחיל בשם ובגיל. זה מספיק לשלב הזה. | שם הילד או כינוי | גיל | 4 | 5 | 6 | 7 | ממשיכים",
+  "buttons": [
+   "[ ] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "4",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "5",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "6",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "7",
+     "w": 13,
+     "h": 13
+    }
+   ],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A05-moment",
+  "width": 320,
+  "text": "היום | על מה תרצו לעבוד הבוקר? | יציאה מהבית | כל מה שקורה מהרגע שמתארגנים ועד שיוצאים. | לבוש | להתלבש בבוקר עם פחות עזרה. | מה לוקחים | לזכור ולאסוף את הדברים שצריך לקחת. | בהמשך | שינה | מסכים | שיעורים | מטלות | ממשיכים",
+  "buttons": [
+   "[X] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "ממשיכים",
+     "r": 3.14,
+     "fs": "18px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "leaving_home",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "dressing",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "bag_items",
+     "w": 13,
+     "h": 13
+    }
+   ],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A06-situation",
+  "width": 320,
+  "text": "היום | הבוקר אצלכם | מה בדרך כלל קורה כשמגיע הזמן לצאת? | הילד ממשיך במה שהוא עושה ולא מתחיל לצאת | יוצא לי להזכיר שוב ושוב | בסוף יוצא לי לגשת או לעזור יותר כדי שנצא | קשה לבחור. אני רוצה לתאר במילים שלי | ממשיכים לתיאור",
+  "buttons": [
+   "[X] ממשיכים לתיאור"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "ממשיכים לתיאור",
+     "r": 3.14,
+     "fs": "18px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "continues_activity",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "repeated_reminders",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "parent_steps_in",
+     "w": 13,
+     "h": 13
+    },
+    {
+     "k": "INPUT",
+     "t": "describe_freely",
+     "w": 13,
+     "h": 13
+    }
+   ],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים לתיאור",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A07-description",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה קרה בפעם האחרונה? | מהרגע שאמרת שיוצאים ועד מה שקרה אחר כך. | תיאור מה שקרה בפעם האחרונה | אפשר לכתוב מה אמרת, מה נועה עשה ומה עשית בהמשך. | ממשיכים",
+  "buttons": [
+   "[ ] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A08-initial-picture",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | זה מה שהבנו עד עכשיו | ממה שסיפרת | אתמול בבוקר רגיל אמרתי דלת פעם אחת והיא הלכה לדלת בלי שאמרתי שוב. היום בבוקר רגיל אמרתי דלת פעם אחת והיא הלכה לדלת בלי שאמרתי שוב. | מה כבר ברור | יש מספיק מידע כדי לבחור את הצעד הבא. | מה עושים עכשיו | אפשר לבנות עכשיו תכנית אחת",
+  "buttons": [
+   "[ ] לתכנית"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "לתכנית",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A09-first-plan",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | התכנית מוכנה | על מה עובדים | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | מה כבר ידוע | כבר ברור שיוצאים ולאן הולכים. אחרי ההגעה לדלת, ההמשך מסתדר. | המעבר נעצר כשצריך לעזוב את הפעילות וללכת לדלת. | מה משתנה בעזרה שלך | עד עכשיו הקימה הגיעה אחרי מילה אחת. עכש",
+  "buttons": [
+   "[ ] ממשיכים להכנה"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים להכנה",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A10-first-plan-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | התכנית מוכנה | על מה עובדים | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | מה כבר ידוע | כבר ברור שיוצאים ולאן הולכים. אחרי ההגעה לדלת, ההמשך מסתדר. | המעבר נעצר כשצריך לעזוב את הפעילות וללכת לדלת. | מה משתנה בעזרה שלך | עד עכשיו הקימה הגיעה אחרי מילה אחת. עכש",
+  "buttons": [
+   "[ ] ממשיכים להכנה"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים להכנה",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A11-child-prep",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הבוקר הראשון | אומרים: „מחר השעון יגיד מתי יוצאים. כשהחול נגמר, הולכים לדלת.” ובזמן רגוע, לא בבוקר: ההורה הופך את השעון בלי לומר דבר; כשהחול נגמר, הולכים לדלת. זו היכרות, לא ניסיון. | ממשיכים",
+  "buttons": [
+   "[ ] ממשיכים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "ממשיכים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A12-pre-day",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | לפני הניסיון הראשון | אומרים: „מחר השעון יגיד מתי ",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A13-pre-day-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | לפני הניסיון הראשון | אומרים: „מחר השעון יגיד מתי ",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A14-runtime",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | א",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A15-runtime-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | ל",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A16-checkin-empty",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | דיווח קצר | מה קרה בפועל? | מה חיפשנו לראות | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת ובלי שההורה זז לכיוון הדלת. | היה היום תרגול? | כן | לא | שומרים את מה שקרה בפועל כדי לדייק את הצעד הבא. | שמירת מה שקרה",
+  "buttons": [
+   "[X] שמירת מה שקרה"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "שמירת מה שקרה",
+     "r": 3.14,
+     "fs": "18px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    }
+   ],
+   "radios": [
+    {
+     "border": "rgba(20, 20, 20, 0.45)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    },
+    {
+     "border": "rgba(20, 20, 20, 0.45)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    }
+   ],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "שמירת מה שקרה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A17-checkin-g1-yes",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | דיווח קצר | מה קרה בפועל? | מה חיפשנו לראות | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת ובלי שההורה זז לכיוון הדלת. | היה היום תרגול? | כן | לא | התרגול קרה כמו שתכננתם? | כן | לא | לא ברור לי | מה ראית אצל הילד? | כן | לא | מה הייתה העזרה הכי גדולה שנתת? | ההורה אומ",
+  "buttons": [
+   "[X] שמירת מה שקרה"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "שמירת מה שקרה",
+     "r": 3.14,
+     "fs": "18px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "unknown",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "planned_support",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "escalation_1",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "escalation_2",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "more_than_planned",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "held",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "repeated_before_wait",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "early_entry",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "took_over_before_wait",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "cue_reset_after_seen",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "ran_different_plan",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "unplanned_takeover_after",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "malformed_step_after_wai",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "cannot_recall",
+     "w": 22,
+     "h": 22
+    }
+   ],
+   "radios": [
+    {
+     "border": "rgb(20, 20, 20)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    },
+    {
+     "border": "rgba(20, 20, 20, 0.45)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    },
+    {
+     "border": "rgba(20, 20, 20, 0.45)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    }
+   ],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "שמירת מה שקרה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A18-checkin-valid-filled",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | דיווח קצר | מה קרה בפועל? | מה חיפשנו לראות | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת ובלי שההורה זז לכיוון הדלת. | היה היום תרגול? | כן | לא | התרגול קרה כמו שתכננתם? | כן | לא | לא ברור לי | מה ראית אצל הילד? | כן | לא | מה הייתה העזרה הכי גדולה שנתת? | ההורה אומ",
+  "buttons": [
+   "[ ] שמירת מה שקרה"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "unknown",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "yes",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "no",
+     "w": 20,
+     "h": 20
+    },
+    {
+     "k": "INPUT",
+     "t": "planned_support",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "escalation_1",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "escalation_2",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "more_than_planned",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "held",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "repeated_before_wait",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "early_entry",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "took_over_before_wait",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "cue_reset_after_seen",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "ran_different_plan",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "unplanned_takeover_after",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "malformed_step_after_wai",
+     "w": 22,
+     "h": 22
+    },
+    {
+     "k": "INPUT",
+     "t": "cannot_recall",
+     "w": 22,
+     "h": 22
+    }
+   ],
+   "radios": [
+    {
+     "border": "rgb(20, 20, 20)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    },
+    {
+     "border": "rgba(20, 20, 20, 0.45)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    },
+    {
+     "border": "rgb(20, 20, 20)",
+     "bg": "rgb(255, 255, 255)",
+     "r": 18.42,
+     "style": "solid"
+    }
+   ],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "שמירת מה שקרה",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A19-result-valid-1",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | הניסיון נשמר | ההמתנה נשמרה, וההגעה לדלת הייתה כשהחול נגמר. מחר עושים בדיוק אותו דבר. | בדיקת ההתקדמות",
+  "buttons": [
+   "[ ] בדיקת ההתקדמות"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "בדיקת ההתקדמות",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A20-progress-1",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | ממשיכים ככה | בהתחלה | כשהפעילות נגמרה, נאמרה פעם אחת „דלת”, ואז הייתה התקדמות לדלת. | עכשיו | עוד אין מספיק בקרים שנספרו כדי לדעת אם הצעד מחזיק. ממשיכים אותו דבר. | לתכנית שלפני הניסיון | מה עושים עכשיו",
+  "buttons": [
+   "[ ] לתכנית שלפני הניסיון",
+   "[ ] מה עושים עכשיו"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "לתכנית שלפני הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "מה עושים עכשיו",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A21-pre-day",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A22-pre-day-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A23-runtime",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | א",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A24-runtime-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | ל",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A25-result-valid-2",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | הניסיון נשמר | ההמתנה נשמרה, וההגעה לדלת הייתה כשהחול נגמר. מחר עושים בדיוק אותו דבר. | בדיקת ההתקדמות",
+  "buttons": [
+   "[ ] בדיקת ההתקדמות"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "בדיקת ההתקדמות",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A26-progress-2",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | ממשיכים ככה | בהתחלה | כשהפעילות נגמרה, נאמרה פעם אחת „דלת”, ואז הייתה התקדמות לדלת. | עכשיו | עוד אין מספיק בקרים שנספרו כדי לדעת אם הצעד מחזיק. ממשיכים אותו דבר. | לתכנית שלפני הניסיון | מה עושים עכשיו",
+  "buttons": [
+   "[ ] לתכנית שלפני הניסיון",
+   "[ ] מה עושים עכשיו"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "לתכנית שלפני הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "מה עושים עכשיו",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A27-pre-day",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A28-pre-day-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A29-runtime",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | א",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A30-runtime-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | ל",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A31-result-valid-3",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | הניסיון נשמר | ההמתנה נשמרה, וההגעה לדלת הייתה כשהחול נגמר. מחר עושים בדיוק אותו דבר. | בדיקת ההתקדמות",
+  "buttons": [
+   "[ ] בדיקת ההתקדמות"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "בדיקת ההתקדמות",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A32-progress-3",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | ממשיכים ככה | בהתחלה | כשהפעילות נגמרה, נאמרה פעם אחת „דלת”, ואז הייתה התקדמות לדלת. | עכשיו | עוד אין מספיק בקרים שנספרו כדי לדעת אם הצעד מחזיק. ממשיכים אותו דבר. | לתכנית שלפני הניסיון | מה עושים עכשיו",
+  "buttons": [
+   "[ ] לתכנית שלפני הניסיון",
+   "[ ] מה עושים עכשיו"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "לתכנית שלפני הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "מה עושים עכשיו",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A33-pre-day",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A34-pre-day-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | לפני הניסיון | התכנית של הערב | מה עובדים עליו מחר | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | התפקיד שלך | זה לא ויכוח על אם יוצאים. יוצאים. השעון מבקש, לא ההורה. אם אין קימה, מה שעולה זו העזרה, לא הקול. | מה מכינים | תיק, נעליים ומעיל ליד הדלת. אחרי ארוחת",
+  "buttons": [
+   "[ ] מתחילים"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "מתחילים",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A35-runtime",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | א",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A36-runtime-open",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | מה עושים עכשיו | כשהחול נגמר, מגיעים לדלת בלי מילה נוספת מההורה. | עכשיו | ההורה אומר את ההכרזה והופך את השעון. | בזמן המעבר — כמה לעזור | לא מדבר. סימן אחד: אצבע על הפריט, טיימר שמופעל, כרטיס תמונות שנועה עובר עליו. ההורה בקרבת מקום, לא ליד נועה. | מה לא לעשות | ל",
+  "buttons": [
+   "[X] עדיין אין התחלה",
+   "[ ] סיום הניסיון"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [
+    {
+     "t": "עדיין אין התחלה",
+     "r": 3.46,
+     "fs": "17px",
+     "dis": true,
+     "need": 4.5
+    }
+   ],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "עדיין אין התחלה",
+     "disabled": true,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    },
+    {
+     "t": "סיום הניסיון",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A37-result-valid-4",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | הניסיון נשמר | ההמתנה נשמרה, וההגעה לדלת הייתה כשהחול נגמר. מחר עושים בדיוק אותו דבר. | בדיקת ההתקדמות",
+  "buttons": [
+   "[ ] בדיקת ההתקדמות"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "בדיקת ההתקדמות",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A38-progress-4",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | בודקים את הצעד הבא | ברוב הבקרים, וגם באחרון, הייתה הגעה לדלת כשהחול נגמר בלבד. הצעד הזה יציב, והיעד נסגר. לפני הצעד הבא בודקים שוב מה מתאים עכשיו. | בדיקת הצעד הבא",
+  "buttons": [
+   "[ ] בדיקת הצעד הבא"
+  ],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [],
+   "disabledBtns": [
+    {
+     "t": "בדיקת הצעד הבא",
+     "disabled": false,
+     "ariaDisabled": null,
+     "describedby": null,
+     "tabIndex": 0
+    }
+   ],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ },
+ {
+  "tag": "A39-after-recheck",
+  "width": 320,
+  "text": "היום | נועה · בוקר · יציאה מהבית | בודקים את הצעד הבא | לא הצלחנו להשלים את הפעולה כרגע.",
+  "buttons": [],
+  "m": {
+   "vw": 320,
+   "scrollW": 320,
+   "bodyScrollW": 320,
+   "overflowing": [],
+   "lowText": [],
+   "smallTargets": [],
+   "radios": [],
+   "live": [
+    "alert:לא הצלחנו להשלים את הפעולה כרגע."
+   ],
+   "disabledBtns": [],
+   "dir": "rtl",
+   "lang": "he"
+  }
+ }
+]
