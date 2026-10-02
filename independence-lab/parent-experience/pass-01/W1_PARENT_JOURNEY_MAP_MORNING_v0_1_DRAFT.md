@@ -183,7 +183,7 @@ None of these is a contradiction. They are experience observations only.
 
 | ID | Observation | Classification |
 |---|---|---|
-| W1-F1 | Before the Learning Result, no screen has a defined place for *what is not yet known*. Initial Picture and First Plan show "already clear / already known" | PX RESEARCH QUESTION. Uncertainty-visibility requirements wait for W4 (HOLD) |
+| W1-F1 | Before the Learning Result, no **canonical presentation source** defines a place for *what is not yet known*. Initial Picture and First Plan show "already clear / already known". **Correction (audit TA-14, source inspection of `4499671`):** the shipped Initial Picture adds a conditional block "מה עוד צריך לראות" for CAPABILITY_PROBE and ENVIRONMENT_FIRST. Uncertainty *is* shown there in implementation; its Voice provenance is unconfirmed | PX RESEARCH QUESTION. Uncertainty-visibility requirements wait for W4 (HOLD) |
 | W1-F2 | The child-preparation content appears on two consecutive screens (Child Preparation, then the Pre-Day block before the first attempt) | PX observation. Possible redundancy or deliberate reinforcement. Testing question. No change proposed |
 | W1-F3 | The context-strip progress dots (done / current / future) are navigation chrome (Code Handoff §0). A parent may read them as *progress* | PX RESEARCH QUESTION (connects to "no score" in Progress §1) |
 | W1-F4 | Four application states have no defined parent experience (presentation = null) | Existing gap GAP-05 · Product |
