@@ -3,7 +3,8 @@
 **Project:** מעבדת העצמאות / Independence Lab
 **Role:** Parent Experience Control Tower (06)
 **Date:** 02.10.2026
-**Status:** DRAFT working document. NOT SoT. NOT Product approved. For Main Control Tower review.
+**Status:** DRAFT working document. NOT SoT. NOT Product approved.
+**Main CT review (02.10.2026):** ACCEPTED AS WORKING AUDIT · PARTIAL SOURCE VERIFICATION. Two corrections applied in this revision: GAP-01 reclassified (§4); the supplied screenshot moved to infrastructure reference (§0.3).
 **Audits:** `GEMINI_PARENT_EXPERIENCE_RESEARCH_MASTER_PACK_v0_2_RAW`
 **Does not:** create Active SoT, design screens, change Morning, write copy, resolve Safety.
 
@@ -34,7 +35,7 @@ Each claim was checked in this order, and the first test that applies decides:
 |---|---|
 | **Canonical** | Master Handoff §13 · ACTIVE_SOT_INDEX_v0_4 · REV3 · Decisions Log v1.0 · Practice vs Evidence v0.2.1 · Observation v0.10 · Progress v0.3.3 · Fact Set v0.2 · Ladder v0.5 · Target v0.6 · Safety Gate v1.0 · Open Decisions Register v1.0 · Voice locks · Code Handoff v1.0 · Check-in handoff v0.2 · Alignment Note |
 | **Reference only** | HOME_v0_10_RECONSTRUCTED. The unified contract wins on any conflict |
-| **Visual sample** | The file supplied as the "Production screenshot for `4499671`" (see §0.3) |
+| **Infrastructure / release reference only** | The file supplied as the "Production screenshot for `4499671`" (see §0.3). Removed from visual product evidence (Main CT) |
 
 ### 0.3 Finding on the supplied screenshot
 
@@ -43,7 +44,7 @@ The file (`mcp-claude-in-chrome-blob-…jpg`) is **a Vercel dashboard screenshot
 - branch `release/staging-morning-2026-09-29`;
 - "The deployment was canceled because the Ignored Build Step command returned exit code 0."
 
-**It contains no parent-facing screen.** It is evidence for OD-P1-08 (the Ignored Build Step issue), not a visual reference.
+**It contains no parent-facing screen.** Main CT confirmed: kept only as INFRASTRUCTURE / RELEASE REFERENCE (OD-P1-08). It is not visual product evidence, and nothing about Production accessibility is inferred from it.
 
 **Parent-facing visual coverage of Production available to 06: zero screens.**
 
@@ -166,7 +167,7 @@ Each row gives a claim ID, the Gemini claim in short, the classification, and th
 | ID | Gemini claim | Classification | Reason / source |
 |---|---|---|---|
 | J1 | Incomplete Check-in: auto-save and allow asynchronous return | PRODUCT DECISION + TECHNICAL | Production has no persistence (REV3 §19). Hidden-group answers live only in session state (handoff §2). Auto-save is a new Product capability. See GAP-07 |
-| J2a | Cannot remember: offer "not sure" | ACCEPT at requirement level (source: handoff v0.2 §4) | **Partly implemented, with a hole:** G2, G2a and G5 have UNKNOWN or cannot-recall paths. **G3 has none** (REV3 §3). See GAP-01 |
+| J2a | Cannot remember: offer "not sure" | DOWNGRADE (bounded by the closed structure) | Canonical structure already decides where uncertainty is offered: UNKNOWN in G2 and G2a, a cannot_recall row in G5, and the `report-completeness = insufficient_after_clarification` path. **G3 is closed as yes/no + breakdown with no UNKNOWN row** (REV3 §3; the Decisions Log overrides the older handoff §4 on this meaning). No change proposed. Experience risk recorded as research question RQ-G3-01 (§4, GAP-01) |
 | J2b | Cannot remember: offer "Skip" | **REJECT** | Required groups are answered through UNKNOWN, never skipped (handoff §4). Skip would make missing data indistinguishable from a deliberate answer |
 | J3 | Changed context: let the parent append context easily | **REJECT** | G2a is closed, template-specific and source-backed. No generic context taxonomy (Log §13, Fact Set §1 "not supported", G2a Label Pack) |
 | J4 | Unexpected events accepted without error states | ACCEPT (restates canonical) | Framework R0: every real practice day is an asset; deviation is not failure. Authority: Framework §1, §4 |
@@ -532,18 +533,17 @@ None of the gaps changes any REJECT.
 |---|---|---|
 | F3 | ADJUST is not failure | Progress |
 | F5 | No practice → no inference | Fact Set |
-| J2a | Never blocked by memory | Check-in handoff |
 
 **Accepted as research gaps:** L1–L4.
 
-### DOWNGRADED CLAIMS (16)
+### DOWNGRADED CLAIMS (17)
 
 | Group | IDs |
 |---|---|
 | Cognitive load and alerts | B1, B2, B3a |
 | Organizing Reality | C2, C4, C5 |
 | Screens | D7 |
-| Check-in | E1, E4, E5 |
+| Check-in | E1, E4, E5, J2a |
 | Learning Result | F4 |
 | Trust | G1 |
 | Accessibility | I6 (technical half) |
@@ -625,10 +625,11 @@ None of the gaps changes any REJECT.
 | # | Decision | Status |
 |---|---|---|
 | PR1 | Safety stop experience and which stop modes apply to Morning (B3b, H5, J7, Q2) | **BLOCKED** (Main CT closure 2) |
-| PR2 | G3 has no UNKNOWN / cannot-recall path (GAP-01) | Professional + Product |
 | PR3 | FADE → RECHECK_AFTER_FADE meaning (OD-P1-09) | Open |
 | PR4 | Whether environment_check / bottleneck_observation count as practice days in parent-facing continuity (OD-P1-01) | Open |
 | PR5 | `[NEXT_STEP_STATEMENT]` meaning on a non-evidence day | Open, already known |
+
+PR2 (G3 cannot-recall) was withdrawn by Main CT correction and is now research question RQ-G3-01. IDs are not renumbered.
 
 ### TECHNICAL IMPLEMENTATION CLAIMS
 
@@ -650,7 +651,7 @@ Out of 06 scope: E3 (inline-error ARIA pattern), M2 (engineering standard).
 
 | ID | Gap | Why it matters | Owner to decide | Priority |
 |---|---|---|---|---|
-| **GAP-01** | **G3 has no UNKNOWN path.** Handoff v0.2 §4 says every required group gives an UNKNOWN path "so the parent is never blocked by memory". REV3 §3 removed it from G3; Log §11 governs meaning | A parent who cannot recall the child's outcome must pick yes or no. That is forced data on the field Progress reads. It is unclear whether the existing cannot_recall clarification path covers G3 | Professional + Product. 06 does not resolve | **HIGH** |
+| **GAP-01 → RQ-G3-01** | **Reclassified by Main CT.** PARENT EXPERIENCE RESEARCH QUESTION + POTENTIAL FUTURE PRODUCT REOPEN REQUEST. Not a current Product gap, not a REV3 contradiction, not an implementation bug. Canonical: G3 = `successSignalMet` yes/no + `breakdownObserved` when no, no UNKNOWN row; separate `report-completeness = insufficient_after_clarification` path exists | Question: what experience risk exists when a parent cannot confidently recall G3, given the closed structure? No UNKNOWN or Skip is proposed. REV3 is not reopened | 06 research (W2) | MEDIUM |
 | GAP-02 | KEEP (`insufficient_evidence` / `mixed`) has no experience definition: what uncertainty is shown, without reason codes or counts | The most frequent outcome in early weeks (Progress S01, S09, S13) | Product + Voice; 06 writes requirements | HIGH |
 | GAP-03 | Parent-facing traceability vs "do not echo context" | Trust needs some traceability; the no-echo rule bans the obvious form | Product | MEDIUM |
 | GAP-04 | Staleness presentation (Framework O6) | Must not read as reset, loss or failure | Product + Voice | MEDIUM |
