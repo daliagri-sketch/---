@@ -818,6 +818,7 @@ type NotHeldReason =
 ```
 
 **Report refinements (released, REV3):**
+0. תשובה כפולה לאותו `questionRef` אינה תקפה (released: `targetCheckinReportIssues`, "duplicate answer for <questionRef>").
 1. `practice-occurred` חובה. G1 = no → הדוח נושא את `practice-occurred` בלבד.
 2. G1 = yes → `practice-as-planned` ∈ {yes, no, unknown} חובה.
 3. `what-was-different` חובה כש-G2 = `no`, ואסור בכל מקרה אחר. כל ערך הוא `ContextFactId`.
@@ -3396,7 +3397,7 @@ type ProgressSnapshot =
 - FADE: לפחות 3 מתוך 4 at-target, והאחרונה at-target.
 - ADJUST: לפחות 3 מתוך 4 off-target, והאחרונה off-target. סיבות: `support_insufficient` / `breakdown_shifted` / `capability_recheck` (ADJUST שני על אותו Target).
 - KEEP: `insufficient_evidence` / `mixed`.
-- Staleness: יותר מ-14 ימים קלנדריים בלי רשומה valid → ה-Window מתרוקן.
+- Staleness: יותר מ-14 ימים קלנדריים בלי רשומה valid → ה-Window מתרוקן. הימים הקלנדריים מחושבים באזור הזמן `Asia/Jerusalem` (released: `progressEvaluator.ts`, `CALENDAR_TIMEZONE`).
 
 **Rule 5 (Progress v0.3.3 §5; REV3 §12) — מנגנון נפרד:**
 
@@ -5575,7 +5576,7 @@ R8. `contextFacts`: `unknown` is exclusive; C1 + C2 never coexist; `cueResetAfte
 R9. `not_held` carries exactly one of `notHeldReason` / `cueResetAfterSeen` / `ranDifferentPlan`; `held` carries none.
 R10. `skipped_setup` is not a `notHeldReason` value. Setup and context travel only in `contextFacts`.
 R11. `malformed_step_after_wait` requires an escalation step (`actual-help ≠ planned_support`).
-R12. A non-evidence day keeps the same Target and the same PlanningInstance, and shows no KEEP / ADJUST / FADE card and no reflection.
+R12. A non-evidence day keeps the same Target and the same PlanningInstance. It shows no KEEP / ADJUST / FADE card and no reflection **only when Rule 5 does not fire**. Exception: when Rule 5 fires, the parent may receive ADJUST(`parent_execution_block`) and the corresponding `not_held.*` reflection, as defined by §45, §61 and REV3 §15 / §19.
 
 ---
 
