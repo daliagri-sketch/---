@@ -10,7 +10,7 @@
 
 | Condition | Status |
 |---|---|
-| A. Contract reconciliation resolved | **OPEN.** `ENGINE_ADAPTER_CONTRACT_v0_10_RECONCILIATION_PACKET` in preparation; canonical copy UNRESOLVED |
+| A. Contract reconciliation resolved | **IN REVIEW.** §4.3 / §4.4 / §24.5 governance-ratified 03.10.2026. `ENGINE_ADAPTER_CONTRACT_v0_11_RECONCILED_DRAFT` returned to Main CT; not canonical until accepted |
 | B. RT-02 parent routing decided where needed | **OPEN.** PB-01 / PB-02 Product decision pending |
 | C. Remaining blocker packet updated | **This document** |
 
