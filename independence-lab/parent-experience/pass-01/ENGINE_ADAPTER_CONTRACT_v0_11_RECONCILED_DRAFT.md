@@ -1,6 +1,7 @@
 # ENGINE_ADAPTER_CONTRACT v0.11 — RECONCILED DRAFT
 
 **Status:** `DRAFT / NOT YET CANONICAL / NOT FOR IMPLEMENTATION`
+**Draft revision:** REV2 · 03.10.2026 (REV1 accepted in principle by Main CT; REV2 = practice_not_occurred sync, bank-version note, copy wording)
 **Prepared by:** Parent Experience Control Tower (06) · 03.10.2026 · לבקשת Main Control Tower (GOVERNANCE RATIFICATION DECISION)
 **Supersedes (after Main CT acceptance only):** `ENGINE_ADAPTER_CONTRACT_v0_10` — שני העותקים: Drive (`1YUivC5JjQNolvufnreSlijTcJD_jgPGa`, 130,586 B, sha256 `bf23c78e…`) ו-repo (`docs/…/ENGINE_ADAPTER_CONTRACT_v0_10.md`, 137,950 B, sha256 `a42c7295…`). v0.10 נשמר כהיסטורי ומסומן SUPERSEDED רק אחרי קבלת ה-successor.
 **Scope:** `morning` · tasks `leaving_home` (plannable) · `dressing` / `bag_items` (describable) · גילאי 4–7
@@ -11,7 +12,8 @@
 > - **זה אינו אישור היסטורי.** הסעיפים נכנסו לעותק ה-repo דרך PR #13 (27.9), PR #16 (27.9) ו-PR #20 (28.9), בלי החלטת Drive מקבילה. אין לייחס להם אישור שלא היה קיים בתאריכים אלה.
 > - §4.3: אושרר; המכניקה נכללת רק ככל שהיא מתארת התנהגות משוחררת ומקובלת.
 > - §4.4: אושרר כהתנהגות מוצר משוחררת, בתאריך האשרור.
-> - §24.5: **סמנטיקה בלבד.** מחרוזות ההצגה (labels, FADE copy) אינן אמת Voice של החוזה; הן רשומות כערכים משוחררים בבעלות VOICE / PRODUCT PRESENTATION. החוזה אינו יוצר Voice lock חדש.
+> - §24.5: **סמנטיקה בלבד.**
+> - **Copy:** החוזה מגדיר סמנטיקה, לא Voice locks סופיים. כל מחרוזת משוחררת שמופיעה בחוזה מסומנת `RELEASED PRESENTATION VALUE` בלבד, בבעלות VOICE / PRODUCT PRESENTATION, ואינה אמת Voice קנונית.
 
 **היסטוריית גרסה (נשמר):** v0.10 · 26.9.2026 (§67) · K2 activation delta 27.9.2026 (§4.3) · PR-B 27.9.2026 (§4.4) · PR-F 28.9.2026 (§24.5).
 **v0.9 patch history (נשמר):** Pre-Day Projection Patch · Review Closure Patch · Final Professional Review Patch (24.9.2026). התוכן שלהם נשמר בגוף המסמך.
@@ -316,22 +318,31 @@ const DomainScopeSchema = z.object({
 4. **Guardrail:** `PlanningInstance.resolvedGuardrail: ResolvedGuardrail | null`; `guardrailText: ParentFacingText | null` ב-First Plan, Pre-Day ו-Runtime. דפוס הורה לא פתור → null. אין דפוס ברירת מחדל ואין הסקה. `sourcePattern` נשאר `loop | quiet_waiver | zero_to_100 | once`.
 5. **`safetyStopText: ParentFacingText | null`** ב-First Plan, Pre-Day ו-Runtime בלבד. אותו ערך בכל המשטחים. לעולם לא חלק מ-`doNot`, `ifNotStart`/`ifNotStartPreview` או `guardrailText`.
 6. **Post-measurement completion:** `CompressedRuntimeAction.source` מקבל `post_measurement_completion`. `PlanningInstance.resolvedPostMeasurementCompletion: CompressedRuntimeAction | null`, מחוץ ל-`resolvedEscalationChain`, source חייב להיות `post_measurement_completion`. ב-K2 הערך קיים (support 5). הטקסט להורה עובר ב-`RuntimeProjection.actionText` הקיים; אין `postMeasurementActionText`.
-7. **Runtime cursor + `REPORT_RUNTIME_NO_START`:** ל-AttemptSession יש `runtimeCursor` בבעלות המנוע: `initial_move | escalation_1 | escalation_2 | stop_measurement | post_measurement_completion`. `START_RUNTIME_ATTEMPT` → `initial_move`. פקודה חדשה `REPORT_RUNTIME_NO_START { attemptSessionRef, runtimeActionRef }`: כל דיווח מקדם צעד אחד (`initial_move → escalation_1 → escalation_2 → stop_measurement`) ומחזיר `runtime_action_ready` עם אותו `attemptSessionRef` ו-`runtimeActionRef` חדש. ב-`stop_measurement` המדידה קפואה (`measurement = stopped`), `currentAction` = פעולת ה-terminal. חוקי רק כש-`applicationState = ATTEMPT_IN_PROGRESS`, `measurement = measuring`, `runtimeActionRef` = הפעולה הקנונית הנוכחית, וה-wait הקנוני המלא של הפעולה הנוכחית עבר. דיווח מוקדם, stale או כפול → `INVARIANT_VIOLATION`, בלי commit ובלי שינוי revision (replay מדויק של אותו `requestId` מחזיר את התשובה השמורה). הדיווח לא יוצר Observation, לא מפעיל Progress ולא משנה actual support או validity. **Application wait gate:** הכפתור (תווית מוצגת ב-Production: "עדיין אין התחלה"; COPY OWNER: VOICE / PRODUCT PRESENTATION; החוזה אינו נועל את התווית) מוצג disabled עד שעובר `resolvedWaitWindowMs` של ה-RuntimeAction הנוכחי, ו-`runtimeActionRef` חדש מאפס את הזכאות. לחיצה מוקדמת לא שולחת פקודה. האפליקציה משתמשת רק בפעולה הנוכחית, ב-wait הקנוני שלה ובמצב ה-session; היא לא מסיקה escalation, STOP או פעולה מקצועית. ולידציית המנוע לא משתנה.
+7. **Runtime cursor + `REPORT_RUNTIME_NO_START`:** ל-AttemptSession יש `runtimeCursor` בבעלות המנוע: `initial_move | escalation_1 | escalation_2 | stop_measurement | post_measurement_completion`. `START_RUNTIME_ATTEMPT` → `initial_move`. פקודה חדשה `REPORT_RUNTIME_NO_START { attemptSessionRef, runtimeActionRef }`: כל דיווח מקדם צעד אחד (`initial_move → escalation_1 → escalation_2 → stop_measurement`) ומחזיר `runtime_action_ready` עם אותו `attemptSessionRef` ו-`runtimeActionRef` חדש. ב-`stop_measurement` המדידה קפואה (`measurement = stopped`), `currentAction` = פעולת ה-terminal. חוקי רק כש-`applicationState = ATTEMPT_IN_PROGRESS`, `measurement = measuring`, `runtimeActionRef` = הפעולה הקנונית הנוכחית, וה-wait הקנוני המלא של הפעולה הנוכחית עבר. דיווח מוקדם, stale או כפול → `INVARIANT_VIOLATION`, בלי commit ובלי שינוי revision (replay מדויק של אותו `requestId` מחזיר את התשובה השמורה). הדיווח לא יוצר Observation, לא מפעיל Progress ולא משנה actual support או validity. **Application wait gate:** הכפתור (RELEASED PRESENTATION VALUE: "עדיין אין התחלה"; COPY OWNER: VOICE / PRODUCT PRESENTATION) מוצג disabled עד שעובר `resolvedWaitWindowMs` של ה-RuntimeAction הנוכחי, ו-`runtimeActionRef` חדש מאפס את הזכאות. לחיצה מוקדמת לא שולחת פקודה. האפליקציה משתמשת רק בפעולה הנוכחית, ב-wait הקנוני שלה ובמצב ה-session; היא לא מסיקה escalation, STOP או פעולה מקצועית. ולידציית המנוע לא משתנה.
 8. **`stop_measurement`:** `EndRuntimeCompletionKind = normal_end | user_ended | stop_measurement`. `END_RUNTIME_ATTEMPT{stop_measurement}` חוקי רק כש-`runtimeCursor = stop_measurement` ו-`resolvedPostMeasurementCompletion` קיים → נשארים ב-`ATTEMPT_IN_PROGRESS` → `runtime_action_ready` עם אותו `attemptSessionRef`, `currentAction.source = post_measurement_completion`, cursor → `post_measurement_completion`. אין AttemptSession חדש ואין חזרה ל-initial או ל-escalation. אחרי ההשלמה, `normal_end`/`user_ended` → `PENDING_CHECKIN`.
 9. **`AllowedNextAction.allowedCompletionKinds?: EndRuntimeCompletionKind[]`:** חובה ולא ריק רק ב-`END_RUNTIME_ATTEMPT`, אסור בכל פעולה אחרת. חשיפה לפי cursor: `initial_move` / `escalation_1` / `escalation_2` → `[normal_end, user_ended]` + `REPORT_RUNTIME_NO_START`; `stop_measurement` → `[stop_measurement, user_ended]` אם יש השלמה, אחרת `[user_ended]`; `post_measurement_completion` → `[normal_end, user_ended]`. ה-union הזמני `[normal_end, stop_measurement, user_ended]` הוסר. `completionKind` שלא ברשימה הקנונית הנוכחית → `INVARIANT_VIOLATION`, בלי commit ובלי שינוי revision (PD-4 fail closed).
 10. **`RuntimeProjection.ifNotStart`:** מערך ריק מותר רק כש-`currentAction.source = post_measurement_completion` (בדיקה ברמת ה-envelope), ואז `actionText` שווה לטקסט ההשלמה. בכל cursor לפני ההשלמה ב-K2: שלוש שורות בדיוק (escalation 1, escalation 2, terminal); `actionText` = הפעולה הקנונית של ה-cursor.
 11. **Identity boundary:** המנוע לא יודע מי הילד ומחזיר את הגרסה הניטרלית המאושרת. tokens של זהות קיימים רק ב-template source פנימי של האפליקציה. Application Identity Resolver: גרסה דקדוקית סגורה קודם, token שני, בלי החלפה גלובלית ובלי לוכסנים; שם או מגדר חסרים → הגרסה הניטרלית המאושרת; token שלא נפתר → כישלון validation. הפלט עובר `ParentFacingTextSchema`; ה-renderer לא משכתב זהות ב-K2. ב-Runtime נפתר גם `actionText` (escalation 1/2).
 12. **`ParentFacingText`** חוסם גם `DR-B1-`, `STOP_MEASUREMENT`, `post_measurement`.
 13. **Provenance ל-K2:** Bank dressing/bag_items v0.7 (DR-B1-01), KGR v0.6 (KG-002, KG-009, KG-011), INDEPENDENCE_TARGET v0.6 §5.1, FIRST_PLAN / PRE_DAY v0.5. provenance של LH לא משתנה.
-    - **Released runtime (`4499671`):** `templateVersion = "DR-B1-01@0.6"`, `bankVersion = "0.6"`. החוזה אינו משנה ערכים אלה.
-    - **TECHNICAL AUDIT REQUIRED:** האם בין Bank v0.6 ל-v0.7 (DR-B1-01) ובין KGR v0.5 ל-v0.6 יש הבדל שנראה להורה או שמשנה runtime. עד אז ה-citation מתעדכן וה-runtime לא.
+    - **`bankVersion = "0.6"`** (`templateVersion = "DR-B1-01@0.6"`): ערך ה-metadata המשוחרר נשמר. החוזה אינו משנה runtime metadata.
+
+    ```text
+    RELEASED METADATA VALUE:            0.6
+    CURRENT PROFESSIONAL SOURCE VERSION: v0.7 (Bank dressing/bag_items) · KGR v0.6
+    PARENT-VISIBLE SEMANTIC DIFFERENCE: NONE FOUND
+    ```
+
+    - **בסיס הבדיקה (03.10.2026, diff מלא Bank v0.6 → v0.7):** שורת הדלתא של v0.7: "אין שינוי בלוגיקה המקצועית של אף תבנית, ב-copy הנעול של K2, או בסטטוס ההפעלה". ב-DR-B1-01 לא השתנו setup, moves, waits, escalation chain, completion, guardrail או copy. השינויים הם סיווג ראיה בלבד: "הבגדים לא הוכנו בערב" = V6b (לא סטייה של ההורה), ושורה חדשה `planned_change_response` (Observation v0.8 §3ג, KG-015). שני הסיווגים כבר קיימים ב-runtime המשוחרר כמשפחות C2 (`cue_not_received`) ו-C1 (`planned_change_response`) של REV3 (`schemas.ts` L124, L584). KGR v0.6: KG-002, KG-009, KG-011 "ללא שינוי"; נוספו KG-015 ו-KG-016, ו-KG-010 נסגר.
+    - **מגבלה:** מסלול ה-Check-in של K2 לא הורץ בפועל על ידי 06. הממצא מבוסס מקור וקוד.
+    - v0.11 אינו נחסם בגלל מחרוזת ה-metadata בלבד.
 
 
 ## 4.4 PR-B DELTA — MORNING MOMENT SELECTION (27.9.2026)
 
 > **Ratified 03.10.2026 as released Product behavior** (Main CT governance; `4499671`). תאריך האשרור הוא 03.10.2026. לא אישור היסטורי.
 
-Morning היא ה-Arena הפעילה. רגעי בוקר ציבוריים: `leaving_home` (פעיל), `dressing` (פעיל; מכוסה רק dressing / B1 / 4→3 / DR-B1-01), `bag_items` (מוצג, לא פעיל; תווית מוצגת ב-Production: "בהמשך"; COPY OWNER: VOICE / PRODUCT PRESENTATION). Arenas עתידיות (שינה, מסכים, שיעורים, מטלות) מוצגות בנפרד ואינן יוצרות פקודה. אין שינוי בלוגיקה המקצועית.
+Morning היא ה-Arena הפעילה. רגעי בוקר ציבוריים: `leaving_home` (פעיל), `dressing` (פעיל; מכוסה רק dressing / B1 / 4→3 / DR-B1-01), `bag_items` (מוצג, לא פעיל; RELEASED PRESENTATION VALUE: "בהמשך"; COPY OWNER: VOICE / PRODUCT PRESENTATION). Arenas עתידיות (שינה, מסכים, שיעורים, מטלות) מוצגות בנפרד ואינן יוצרות פקודה. אין שינוי בלוגיקה המקצועית.
 
 1. **`SUBMIT_SCENE.payload.declaredTask: Task`** (חובה). הרגע שההורה בחר. אינו DomainScope truth, אינו evidence, אינו מכריח סיווג, ואינו נכתב ל-`CommandContext.scope` (SUBMIT_SCENE טרי נשאר `UNCLASSIFIED_MORNING_SCOPE`).
 2. **עקביות סיווג:** `classifiedTask === declaredTask` → ההערכה הקיימת ממשיכה. אי-התאמה → `morning_task_mismatch_clarification_required { clarificationRef, declaredTask, classifiedTask, options: [confirm_classified_task, keep_declared_task] }`, `ASSESSING`, `allowedNextActions = [ANSWER_ASSESSMENT_CLARIFICATION]`. אין scope, knowledge או Target. אין החלפה שקטה. `classifiedTask !== declaredTask` (schema).
@@ -2899,10 +2910,10 @@ type ProgressProjection = {
 - אין Active Target ל-`progress.targetRef` → אין ProgressProjection.
 - **`progressDecisionLabel`:** התווית המאושרת של `progressDecision`. **החוזה אינו מגדיר את המחרוזות ואינו נועל אותן.**
   - COPY OWNER: VOICE / PRODUCT PRESENTATION.
-  - ערכים משוחררים ב-`4499671` (רישום בלבד, לא Voice lock): KEEP „ממשיכים ככה” · ADJUST „משנים את התכנית” · FADE „מפחיתים עזרה”.
+  - RELEASED PRESENTATION VALUE (`4499671`; לא אמת Voice קנונית): KEEP „ממשיכים ככה” · ADJUST „משנים את התכנית” · FADE „מפחיתים עזרה”.
   - **ADJUST: SOURCE TRACE REQUIRED: YES.** ב-v0.10 (עותק repo) נכתב „צריך להתאים את התכנית” (commit `5f874b6`); ב-Production „משנים את התכנית” (commit `6273b1c`). התווית המשוחררת נשארת ללא שינוי בשלב זה.
 - **KEEP / ADJUST:** רק `startingSupport` = `startingSupportAction` של ה-Target. `reflection` הוא ה-progress reflection הקנוני של אותו ProgressSnapshot (`sourceRef = progressSnapshotRef`), או null אם אין שורה מאושרת. כל השאר null.
-- **FADE:** `currentSupport` = `targetSupportAction` של ה-Target שהתייצב. לא actual של Observation, לא planned support, לא ספירת ניסיונות. `childNowLine` ו-`parentStoppedLine` מגיעים משורות FADE המאושרות של ה-intervention. `fadePresentation` = `{ title, body }` מאושרים של הצגת FADE + `primaryActionId = RECHECK_AFTER_FADE`. COPY OWNER של title / body: VOICE / PRODUCT PRESENTATION; ערכים משוחררים (רישום בלבד, לא Voice lock): „הצעד הזה התייצב” / „עכשיו בודקים איזו עזרה מתאימה הלאה.”. אם חסר מקור אחד, ה-ProgressProjection כולו null. אין projection חלקי ואין fallback.
+- **FADE:** `currentSupport` = `targetSupportAction` של ה-Target שהתייצב. לא actual של Observation, לא planned support, לא ספירת ניסיונות. `childNowLine` ו-`parentStoppedLine` מגיעים משורות FADE המאושרות של ה-intervention. `fadePresentation` = `{ title, body }` מאושרים של הצגת FADE + `primaryActionId = RECHECK_AFTER_FADE`. COPY OWNER של title / body: VOICE / PRODUCT PRESENTATION; RELEASED PRESENTATION VALUE (`4499671`; לא אמת Voice קנונית): „הצעד הזה התייצב” / „עכשיו בודקים איזו עזרה מתאימה הלאה.”. אם חסר מקור אחד, ה-ProgressProjection כולו null. אין projection חלקי ואין fallback.
 - אין ב-ProgressProjection רמה מספרית, אחוז, ציון, רצף, ספירת ניסיונות, סולם מלא, Target הבא או רמת העזרה הבאה.
 - **בלעדיות FADE:** ב-FADE `reflection` תמיד null, וה-FADE reflection לא מוצג יחד עם ה-ProgressProjection. ב-KEEP / ADJUST ה-reflection מוצג בתוך אותו משטח. מקור ה-reflection נשמר כהיסטוריה (`lastReflection` ב-Home).
 - אחרי FADE: `RECHECK_AFTER_FADE` → recheck קנוני. Target חדש מופיע רק אחרי Planning חדש. אין ירושה של copy מה-Target הקודם.
@@ -3527,6 +3538,7 @@ COVERAGE_GAP
 RUNTIME_ACTION_READY
 ATTEMPT_COMPLETED
 OBSERVATION_CREATED
+PRACTICE_NOT_OCCURRED                          (v0.11 sync · REV3 §9 · released)
 REPORT_INSUFFICIENT
 NO_OBSERVATION_CREATED
 PROGRESS_RESULT
@@ -3679,6 +3691,22 @@ type ObservationCreatedResult = {
 };
 
 ```
+
+---
+
+```ts
+// v0.11 sync · REV3 §9 · released (`4499671`). No semantic change.
+type PracticeNotOccurredResult = {
+  kind:
+    "practice_not_occurred";
+
+  pendingCheckinRef:
+    string;
+};
+
+```
+
+G1 = לא: אין Observation, אין ProgressSnapshot, אין ניסיון נמדד. ה-PendingCheckin נסגר כ-`no_practice` (REV3 §9). אין כאן התנהגות הצגה חדשה.
 
 ---
 
@@ -3888,6 +3916,7 @@ type CanonicalResult =
   | RuntimeActionReadyResult
   | AttemptCompletedResult
   | ObservationCreatedResult
+  | PracticeNotOccurredResult                  // v0.11 sync · REV3 §9
   | ReportInsufficientResult
   | NoObservationCreatedResult
   | ProgressResult
@@ -5343,7 +5372,7 @@ BLOCKED SOS EXECUTABLE USE: NONE
 
 ## v0.11 RECONCILED DRAFT (§67.1)
 
-**Changed:** אשרור governance של §4.3, §4.4, §24.5 (03.10.2026); sync גוף החוזה (§22, §39, §40, §41, SUBMIT_SCENE, TargetProposal, ActiveTarget); citations נוכחיים; הסרת נעילות copy מתוך החוזה; §67 שורות 13–15 ו-§67.1.
+**Changed:** אשרור governance של §4.3, §4.4, §24.5 (03.10.2026); sync גוף החוזה (§22, §39, §40, §41, SUBMIT_SCENE, TargetProposal, ActiveTarget); sync של `practice_not_occurred` (REV3 §9, משוחרר); citations נוכחיים; הסרת נעילות copy מתוך החוזה; §67 שורות 13–15 ו-§67.1.
 
 **Unchanged:** כל הרשימה של v0.10 למטה. בנוסף: `contractVersion` נשאר `"0.10"` ב-runtime; אין שינוי בתוויות ובמחרוזות המשוחררות; אין שינוי ב-REV3, ב-KEEP / ADJUST / FADE, במעברי Target, ב-Intervention Banks, ב-Safety.
 
@@ -5403,9 +5432,10 @@ READY FOR v0.10 IMPLEMENTATION (integration branch v0.10): YES
 STATUS: DRAFT / NOT YET CANONICAL / NOT FOR IMPLEMENTATION
 §4.3 / §4.4 / §24.5: GOVERNANCE-RATIFIED 03.10.2026 (released behavior) · NOT HISTORICAL APPROVAL
 NEW SEMANTICS: NONE
-NEW VOICE LOCKS: NONE
+NEW VOICE LOCKS: NONE · RELEASED STRINGS = RELEASED PRESENTATION VALUE ONLY
 ADJUST LABEL: COPY OWNER VOICE / PRODUCT PRESENTATION · SOURCE TRACE REQUIRED
-OPEN, NOT RESOLVED HERE: OD-P1-09 (FADE → recheck) · PB-01 / PB-02 (ADJUST coverage-gap routing) · K2 Bank v0.6→v0.7 runtime delta
+OPEN, NOT RESOLVED HERE: OD-P1-09 (FADE → recheck) · PB-01 / PB-02 (ADJUST coverage-gap routing) 
+K2 BANK METADATA: RELEASED 0.6 · SOURCE v0.7 · PARENT-VISIBLE DIFFERENCE NONE FOUND · NOT BLOCKING
 CODE / REPO / DRIVE INDEX CHANGES: NONE UNTIL MAIN CT ACCEPTANCE
 ```
 
@@ -5437,9 +5467,9 @@ CODE / REPO / DRIVE INDEX CHANGES: NONE UNTIL MAIN CT ACCEPTANCE
 |---|---|---|---|
 | 1 | Header: v0.11 RECONCILED DRAFT; status; supersedes שני עותקי v0.10 אחרי קבלה; Provenance note | header | governance |
 | 2 | Ratification banners | §4.3, §4.4, §24.5 | governance |
-| 3 | Citations: Bank dressing/bag_items v0.7, KGR v0.6; ערכי runtime משוחררים (`0.6`) נרשמים בלי שינוי | §4.2, §4.3 | citation |
-| 4 | תוויות "עדיין אין התחלה" ו-"בהמשך": מ"תווית Voice מאושרת" לרישום של ערך משוחרר, COPY OWNER VOICE / PRODUCT PRESENTATION | §4.3 item 7, §4.4 | copy de-lock |
-| 5 | `progressDecisionLabel` ו-FADE copy: סמנטיקה בחוזה; מחרוזות כרישום בלבד; ADJUST = SOURCE TRACE REQUIRED; הערך המשוחרר נשאר | §24.5 | copy de-lock |
+| 3 | Citations: Bank dressing/bag_items v0.7, KGR v0.6; `bankVersion = "0.6"` נשמר כ-RELEASED METADATA VALUE; PARENT-VISIBLE SEMANTIC DIFFERENCE: NONE FOUND | §4.2, §4.3 | citation |
+| 4 | תוויות "עדיין אין התחלה" ו-"בהמשך": מ"תווית Voice מאושרת" ל-RELEASED PRESENTATION VALUE, COPY OWNER VOICE / PRODUCT PRESENTATION | §4.3 item 7, §4.4 | copy de-lock |
+| 5 | `progressDecisionLabel` ו-FADE copy: סמנטיקה בחוזה; מחרוזות = RELEASED PRESENTATION VALUE; ADJUST = SOURCE TRACE REQUIRED; הערך המשוחרר נשאר | §24.5 | copy de-lock |
 | 6 | הבהרה: ProgressProjection נמסר ב-`envelope.presentation` של `progress_result` | §24.5, §40 | clarification |
 | 7 | הערת OD-P1-09 אחרי FADE | §24.5 | open item |
 | 8 | `SUBMIT_SCENE.payload.declaredTask: Task` | §10 | body sync |
@@ -5448,7 +5478,11 @@ CODE / REPO / DRIVE INDEX CHANGES: NONE UNTIL MAIN CT ACCEPTANCE
 | 11 | `MORNING_TASK_MISMATCH_CLARIFICATION_REQUIRED` family; `MorningTaskMismatchClarificationRequired` type; ענף `declared_task_kept_new_description_required` ב-NoObservationCreatedResult | §39, §40, §41 | body sync |
 | 12 | §65 v0.11 boundary; §66 v0.11 draft gate; §67 שורות 13–15 | §65–§67 | maintenance |
 
-**לא נכלל (מחוץ להיקף האשרור):** `practice_not_occurred` (REV3 §9) קיים ב-runtime ואינו ב-§39 / §41. אינו חלק מהאשרור של 03.10 ולא נוסף. → PRODUCT DECISION REQUIRED: האם REV3 contract sync נכנס ל-v0.11 או לגרסה הבאה.
+| 13 | `practice_not_occurred`: `PRACTICE_NOT_OCCURRED` family, `PracticeNotOccurredResult` type, member ב-CanonicalResult. **CONTRACT SYNCHRONIZATION WITH EXISTING CANONICAL / RELEASED TRUTH** (REV3 §9; `4499671`). אין שינוי סמנטי ואין התנהגות הצגה חדשה (REV2) | §39, §40, §41 | body sync |
+
+**הערות עקביות לביקורת העצמאית (לא שונו ב-REV2, מחוץ להיקף ההוראה):**
+- §42 `PendingCheckin.status` אינו כולל `"no_practice"`, אף ש-`practice_not_occurred` סוגר את ה-PendingCheckin בסטטוס זה ב-runtime (`schemas.ts` L568).
+- §6 ApplicationTransition ו-§45 Presentation Presence לא נבדקו מול `practice_not_occurred`.
 
 ---
 

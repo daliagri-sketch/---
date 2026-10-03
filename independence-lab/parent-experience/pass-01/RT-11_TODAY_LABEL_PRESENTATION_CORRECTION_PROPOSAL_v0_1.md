@@ -1,6 +1,6 @@
 # RT-11_TODAY_LABEL_PRESENTATION_CORRECTION_PROPOSAL_v0_1
 
-**Status:** PROPOSAL. Presentation only. **NOT IMPLEMENTED. No Code task.** Returned to Main CT.
+**Status:** **ACCEPTED by Main CT (03.10.2026).** Presentation only. **NOT IMPLEMENTED. No Code task yet.**
 **Product intent (Main CT, CLOSED):** "היום" is a **status label**, not navigation.
 **Classification:** PRESENTATION FIDELITY ISSUE (RT-11).
 
