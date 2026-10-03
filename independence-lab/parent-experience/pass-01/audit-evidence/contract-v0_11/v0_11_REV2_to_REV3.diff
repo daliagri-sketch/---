@@ -1,0 +1,584 @@
+4c4,6
+< **Draft revision:** REV2 · 03.10.2026 (REV1 accepted in principle by Main CT; REV2 = practice_not_occurred sync, bank-version note, copy wording)
+---
+> **Draft revision:** REV3 · 03.10.2026 · FULL REV3 SYNCHRONIZATION (Main CT, after Huri audit "PASS WITH REQUIRED DOC FIXES"). REV1 accepted in principle; REV2 = practice_not_occurred sync, bank-version note, copy wording; REV3 = full body sync to released / canonical truth.
+> **DOCUMENT VERSION:** v0.11 · **WIRE `contractVersion`:** `"0.10"` (unchanged). ה-wire version `"0.10"` מכסה את ה-shapes המשוחררים שמתועדים כאן (`4499671`). אין bump ל-runtime. **Follow-up נפרד:** WIRE CONTRACT VERSIONING POLICY = GOVERNANCE / IMPLEMENTATION FOLLOW-UP.
+> **Released truth sources for the sync:** `MORNING_CONTRACT_PRODUCT_IMPLEMENTATION_PACKET_v0_2_REV3` (Drive `1jqsjgO11KGeJdlhdUHUeGI-TYikKhscw`; canonical per `RELEASE_RECORD_MORNING_2026-10-02_REV3`) · OBSERVATION_SCHEMA_v0_10 · PROGRESS_KEEP_ADJUST_FADE_v0_3_3 · MORNING_CHECKIN_FACT_SET_v0_2 · released code `4499671` (`src/application/engine/contract/schemas.ts`).
+8c10
+< **Delta:** ראו §67.1. בסיס הטקסט הוא עותק ה-repo של v0.10 (= עותק Drive + §4.3, §4.4, §24.5). אין סמנטיקה חדשה.
+---
+> **Delta:** ראו §67.1. בסיס הטקסט הוא עותק ה-repo של v0.10 (= עותק Drive + §4.3, §4.4, §24.5), מסונכרן ל-REV3 ול-`4499671`. אין סמנטיקה חדשה מעבר לאמת שאושרה או שוחררה.
+331c333
+<     RELEASED METADATA VALUE:            0.6
+---
+>     RELEASED METADATA VALUE:            0.6  (professionalSourceRefs משוחררים: Bank 0.6 · KGR 0.5 · FIRST_PLAN / PRE_DAY 0.5)
+336c338
+<     - **בסיס הבדיקה (03.10.2026, diff מלא Bank v0.6 → v0.7):** שורת הדלתא של v0.7: "אין שינוי בלוגיקה המקצועית של אף תבנית, ב-copy הנעול של K2, או בסטטוס ההפעלה". ב-DR-B1-01 לא השתנו setup, moves, waits, escalation chain, completion, guardrail או copy. השינויים הם סיווג ראיה בלבד: "הבגדים לא הוכנו בערב" = V6b (לא סטייה של ההורה), ושורה חדשה `planned_change_response` (Observation v0.8 §3ג, KG-015). שני הסיווגים כבר קיימים ב-runtime המשוחרר כמשפחות C2 (`cue_not_received`) ו-C1 (`planned_change_response`) של REV3 (`schemas.ts` L124, L584). KGR v0.6: KG-002, KG-009, KG-011 "ללא שינוי"; נוספו KG-015 ו-KG-016, ו-KG-010 נסגר.
+---
+>     - **בסיס הבדיקה (03.10.2026, diff מלא Bank v0.6 → v0.7):** שורת הדלתא של v0.7: "אין שינוי בלוגיקה המקצועית של אף תבנית, ב-copy הנעול של K2, או בסטטוס ההפעלה". ב-DR-B1-01 לא השתנו setup, moves, waits, escalation chain, completion, guardrail או copy. השינויים הם סיווג ראיה בלבד: "הבגדים לא הוכנו בערב" = V6b (לא סטייה של ההורה), ושורה חדשה `planned_change_response` (Observation v0.10 §3ג; Bank v0.7 מצטט v0.8; KG-015). שני הסיווגים כבר קיימים ב-runtime המשוחרר כמשפחות C2 (`cue_not_received`) ו-C1 (`planned_change_response`) של REV3 (`schemas.ts` L124, L584). KGR v0.6: KG-002, KG-009, KG-011 "ללא שינוי"; נוספו KG-015 ו-KG-016, ו-KG-010 נסגר.
+390a393
+>   "REPORT_RUNTIME_NO_START",            // v0.11 sync · §4.3
+405a409,414
+> // v0.11 sync · §4.3 item 8
+> type EndRuntimeCompletionKind =
+>   | "normal_end"
+>   | "user_ended"
+>   | "stop_measurement";
+> 
+412a422,424
+> 
+>   allowedCompletionKinds?:            // v0.11 sync · §4.3 item 9
+>     EndRuntimeCompletionKind[];
+417a430,432
+> const EndRuntimeCompletionKindSchema =
+>   z.enum(["normal_end", "user_ended", "stop_measurement"]);
+> 
+426c441,445
+< }).strict();
+---
+> 
+>   allowedCompletionKinds:
+>     z.array(EndRuntimeCompletionKindSchema).optional(),
+> }).strict()
+>   .superRefine(/* END_RUNTIME_ATTEMPT: required, non-empty, unique · any other id: forbidden */);
+429a449,450
+> `allowedCompletionKinds` חובה, לא ריק וללא כפילויות רק ב-`END_RUNTIME_ATTEMPT`, ואסור בכל פעולה אחרת. החשיפה לפי runtime cursor: §4.3 item 9.
+> 
+547a569,570
+> **v0.11 sync:** זו דרישת v0.9 ל-LH. ה-metadata המשוחרר בפועל (LH ו-K2) מתועד ב-§63; ב-LH, `professionalSourceRefs` המשוחררים מצטטים FIRST_PLAN / PRE_DAY בגרסה `0.4`. החוזה רושם זאת ואינו משנה את ה-runtime.
+> 
+627a651,655
+>     }
+>   | {                                  // v0.11 sync · REV3 §2 (G2a multi-select)
+>       kind: "multi_choice";
+>       questionRef: string;
+>       optionRefs: string[];            // min 1
+659a688,696
+> 
+>     z.object({                         // v0.11 sync · REV3 §2
+>       kind:
+>         z.literal("multi_choice"),
+>       questionRef:
+>         z.string().min(1),
+>       optionRefs:
+>         z.array(z.string().min(1)).min(1),
+>     }).strict(),
+744a782,833
+> ## 9.1 Target Check-in Report model (v0.11 sync · REV3 §2–§7, §13)
+> 
+> `TargetCheckinReportSchema` מאמת shape בלבד. ה-refinements של REV3 רצים על `SUBMIT_CHECKIN` (cross-field superRefine של `ApplicationCommandSchema`). כללים תלויי template (fact של template אחר, reset מחוץ ל-LH-B2-02) נבדקים במנוע.
+> 
+> **questionRef (released):**
+> 
+> | questionRef | kind | מתי |
+> |---|---|---|
+> | `practice-occurred` | boolean | תמיד (G1) |
+> | `practice-as-planned` | single_choice `yes` / `no` / `unknown` | G1 = yes (G2) |
+> | `what-was-different` | multi_choice `ContextFactId[]` | רק כש-G2 = `no` (G2a) |
+> | `success-signal-met` | boolean | G1 = yes (G3) |
+> | `breakdown-observed` | single_choice | רק כש-`success-signal-met = false` |
+> | `actual-help` | single_choice | G1 = yes (G4) |
+> | `parent-held-plan` · `not-held-reason` · `cue-reset-after-seen` · `ran-different-plan` | single_choice / boolean | G1 = yes (G5) |
+> | `report-completeness` | single_choice (`insufficient_after_clarification`) | מסלול ההבהרה הקיים |
+> 
+> ```ts
+> type ContextFactId =
+>   | "exit_items_not_in_place"          // V6a · logistical context
+>   | "announcement_not_said"            // C2 (V6b)
+>   | "screen_on_before_transition"      // C2 (V6b)
+>   | "sand_timer_not_started"           // C2 (V6b)
+>   | "sand_timer_not_visible"           // C2 (V6b)
+>   | "clothes_not_prepared"             // C2 (V6b) · K2
+>   | "child_chose_other_garment"        // C1 (§3ג) · K2
+>   | "unknown";                         // V6c
+> 
+> type PracticeAsPlanned = "yes" | "no" | "unknown";
+> 
+> type NotHeldReason =
+>   | "early_entry"
+>   | "repeated_before_wait"
+>   | "took_over_before_wait"
+>   | "unplanned_takeover_after_wait"
+>   | "malformed_step_after_wait";
+> ```
+> 
+> **Report refinements (released, REV3):**
+> 1. `practice-occurred` חובה. G1 = no → הדוח נושא את `practice-occurred` בלבד.
+> 2. G1 = yes → `practice-as-planned` ∈ {yes, no, unknown} חובה.
+> 3. `what-was-different` חובה כש-G2 = `no`, ואסור בכל מקרה אחר. כל ערך הוא `ContextFactId`.
+> 4. `contextFacts` ייחודיים; `unknown` לא מצטרף לאף fact אחר (REV3 §7); `child_chose_other_garment` ו-`clothes_not_prepared` לא יחד (§4a); `cue-reset-after-seen` לא יחד עם אף fact של C2 (B-01, §13).
+> 5. `success-signal-met` חובה; `breakdown-observed` חובה כשהוא false ואסור כשהוא true.
+> 6. `actual-help` חובה.
+> 7. אם `report-completeness = insufficient_after_clarification`: כללים 8–12 לא נבדקים (מסלול ההבהרה הקיים).
+> 8. `parent-held-plan` ∈ {held, not_held} חובה.
+> 9. `held` → אין `not-held-reason`, אין reset, אין V7.
+> 10. `not_held` → בדיוק אחד מ: `not-held-reason` · `cue-reset-after-seen` · `ran-different-plan`.
+> 11. `not-held-reason` ∈ `NotHeldReason`. `skipped_setup` אינו ערך (REV3 §14).
+> 12. צימודים: `more_than_planned` ⇒ `not_held`; `unplanned_takeover_after_wait` ⇒ `more_than_planned`; `malformed_step_after_wait` ⇒ `actual-help ≠ planned_support`.
+> 
+749a839
+> **v0.11 sync (released):** `REPORT_RUNTIME_NO_START` (§4.3 item 7); `END_RUNTIME_ATTEMPT.completionKind` כולל `stop_measurement` (§4.3 item 8); `SUBMIT_SCENE.declaredTask` (§4.4); refinements של דוח ה-check-in ב-`SUBMIT_CHECKIN` (§9.1).
+759a850
+>   | "REPORT_RUNTIME_NO_START"          // v0.11 sync · §4.3
+778a870
+>   "REPORT_RUNTIME_NO_START",            // v0.11 sync · §4.3
+926,927c1018,1035
+<       | "normal_end"
+<       | "user_ended";
+---
+>       EndRuntimeCompletionKind;        // v0.11 sync · normal_end | user_ended | stop_measurement (§4.3 item 8)
+>   };
+> };
+> 
+> ```
+> 
+> ```ts
+> // v0.11 sync · §4.3 item 7
+> type ReportRuntimeNoStartCommand = {
+>   kind:
+>     "REPORT_RUNTIME_NO_START";
+> 
+>   context:
+>     CommandContext;
+> 
+>   payload: {
+>     attemptSessionRef: string;
+>     runtimeActionRef: string;          // must be the current canonical RuntimeAction
+1018a1127
+>   | ReportRuntimeNoStartCommand        // v0.11 sync · §4.3
+1217c1326,1334
+< ללא שינוי ב־professional fields.
+---
+> ללא שינוי ב־professional fields. **v0.11 sync:** ה-types מסונכרנים ל-K2 המשוחרר (§4.3 items 1–3, 6). אין התנהגות חדשה.
+> 
+> ```ts
+> // v0.11 sync · §4.3 item 1
+> type InterventionId =
+>   | "LH-B2-01"
+>   | "LH-B2-02"
+>   | "DR-B1-01";
+> ```
+1226c1343,1344
+<     | "SETUP-LH-TRANSITION-OBJECT";
+---
+>     | "SETUP-LH-TRANSITION-OBJECT"
+>     | "SETUP-DR-CLOTHES-ORDERED";        // v0.11 sync · §4.3 item 2
+1250,1251c1368
+<     | "LH-B2-01"
+<     | "LH-B2-02";
+---
+>     InterventionId;
+1279c1396,1397
+<     | "terminal";
+---
+>     | "terminal"
+>     | "post_measurement_completion";   // v0.11 sync · §4.3 item 6
+1308a1427,1429
+>   action:                             // v0.11 sync · §4.3 item 3 · source = "terminal"
+>     CompressedRuntimeAction;
+> 
+1323,1324c1444
+<     | "LH-B2-01"
+<     | "LH-B2-02";
+---
+>     InterventionId;
+1334a1455,1467
+> ```ts
+> // v0.11 sync · §4.3 item 7 · engine-owned AttemptSession state; not a wire field
+> type RuntimeCursor =
+>   | "initial_move"
+>   | "escalation_1"
+>   | "escalation_2"
+>   | "stop_measurement"
+>   | "post_measurement_completion";
+> ```
+> 
+> - `ResolvedEscalationStep.action.source` שווה ל-`source` של ה-step. `ResolvedChainTerminal.action.source = "terminal"`. move ו-chain שייכים ל-`selectedInterventionId`.
+> - `RuntimeCursor` הוא מצב של AttemptSession בבעלות המנוע. הוא לא נשלח ב-envelope; ה-Application רואה רק את `currentAction.source` ואת `allowedNextActions`.
+> 
+1423,1424c1556
+<     | "LH-B2-01"
+<     | "LH-B2-02";
+---
+>     InterventionId;                   // v0.11 sync · §4.3 item 1
+1445c1577
+<     ResolvedGuardrail;
+---
+>     ResolvedGuardrail | null;         // v0.11 sync · §4.3 item 4 · unresolved parent pattern → null
+1452a1585,1587
+>   resolvedPostMeasurementCompletion:  // v0.11 sync · §4.3 item 6 · source = post_measurement_completion
+>     CompressedRuntimeAction | null;
+> 
+1538a1674,1676
+>         "DR-B1-",                  // v0.11 sync · §4.3 item 12
+>         "STOP_MEASUREMENT",        // v0.11 sync · §4.3 item 12
+>         "post_measurement",        // v0.11 sync · §4.3 item 12
+1557a1696,1701
+> **v0.11 · divergence recorded, not resolved (TECHNICAL AUDIT REQUIRED):** רשימת ה-tokens ב-runtime המשוחרר (`schemas.ts` L304–L310) היא `B2`, `LH-B2-`, `DR-B1-`, `wait_window`, `escalation_`, `COVERAGE_GAP`, `STOP_MEASUREMENT`, `post_measurement`, וכן המשפט המלא שהוסר ב-v0.8. ההבדלים מול הרשימה כאן:
+> - `B2` נחסם ב-runtime ולא מופיע ברשימה כאן (הוא מופיע ברשימת "אין לחשוף" למטה);
+> - `scope_resolution` רשום כאן (v0.10 §67 שורה 12) ולא נחסם ב-runtime;
+> - המשפט שהוסר נחסם ב-runtime כמשפט מלא, וכאן כמקטע.
+> אין שינוי בקוד ואין שינוי בכלל. ההכרעה איזו רשימה נכונה היא Code / Governance.
+> 
+1583a1728
+>     "DR-B1-01",                                    // v0.11 sync
+1591c1736
+<   resolvedGuardrail: ResolvedGuardrailSchema,
+---
+>   resolvedGuardrail: ResolvedGuardrailSchema.nullable(),                // v0.11 sync
+1593a1739
+>   resolvedPostMeasurementCompletion: CompressedRuntimeActionSchema.nullable(),  // v0.11 sync
+1604a1751,1752
+> Refinements (released): `resolvedMove` ו-`resolvedEscalationChain` שייכים ל-`selectedInterventionId`; `resolvedPostMeasurementCompletion.source = post_measurement_completion` כשהוא קיים.
+> 
+1874c2022,2025
+<     string;
+---
+>     string | null;                    // v0.11 sync · §4.3 item 4
+> 
+>   safetyStopText:
+>     string | null;                    // v0.11 sync · §4.3 item 5
+2018c2169,2172
+<       ParentFacingTextSchema,
+---
+>       ParentFacingTextSchema.nullable(),          // v0.11 sync
+> 
+>     safetyStopText:
+>       ParentFacingTextSchema.nullable(),          // v0.11 sync
+2076c2230,2233
+<     string;
+---
+>     string | null;                    // v0.11 sync · §4.3 item 4
+> 
+>   safetyStopText:
+>     string | null;                    // v0.11 sync · §4.3 item 5
+2257c2414,2417
+<       ParentFacingTextSchema,
+---
+>       ParentFacingTextSchema.nullable(),          // v0.11 sync
+> 
+>     safetyStopText:
+>       ParentFacingTextSchema.nullable(),          // v0.11 sync
+2308c2468
+<     string[];
+---
+>     string[];                         // v0.11 sync · [] only during post_measurement_completion (§4.3 item 10)
+2312a2473,2475
+>   safetyStopText:
+>     string | null;                    // v0.11 sync · §4.3 item 5
+> 
+2413c2576
+<       ).min(1),
+---
+>       ),                                          // v0.11 sync · no .min(1); envelope rule §44
+2418a2582,2584
+>     safetyStopText:
+>       ParentFacingTextSchema.nullable(),          // v0.11 sync
+> 
+2909c3075
+< - ה-`presentation` של envelope שה-`canonicalResult` שלו הוא `progress_result` הוא `ProgressProjection | null` (§43). ל-`ProgressResult` עצמו אין שדה presentation (§40). ProgressProjection מוחזר רק עם `progress_result`. `progressDecision` שווה ל-`ProgressSnapshot.decision`.
+---
+> - ה-`presentation` של envelope שה-`canonicalResult` שלו הוא `progress_result` הוא `ProgressProjection | null` (§43). ל-`ProgressResult` עצמו אין שדה presentation (§40). הכלל "ProgressProjection מוחזר רק עם `progress_result`" ו-`progressDecision = ProgressSnapshot.decision` נאכפים ב-envelope refinement (§44, E3–E5).
+2913a3080,3082
+>   - **RUNTIME VALIDATION: CURRENTLY EXISTS.** ה-schema המשוחרר (`refineProgressProjection`) דוחה `progressDecisionLabel` שאינו שווה לערך המשוחרר של ההחלטה, ו-FADE `title` / `body` שאינם שווים לערכים המשוחררים.
+>   - **COPY OWNER: VOICE / PRODUCT PRESENTATION.** הבדיקה ב-runtime אינה העברת בעלות על ה-copy למנוע. הוצאת בדיקת ה-copy מה-Contract היא החלטת Code / Governance עתידית ונפרדת. אין שינוי קוד עכשיו.
+>   - אותו מצב קיים, כרישום בלבד וללא שינוי, ב: `HomeProjection.statusText` (§24.4), תוויות והוראות ParentSupportPresentation (§17), טקסטים סטטיים של Safety (§33–§34).
+2920c3089,3091
+<   - **OPEN — OD-P1-09:** מסלול FADE → TARGET_RECHECK לא הוגדר. ב-`4499671` הפעולה מסתיימת ב-technical error (RT-01; BLOCKED FOR IMPLEMENTATION). הסעיף אינו פותר זאת.
+---
+>   - **OPEN — OD-P1-09** (BLOCKED FOR IMPLEMENTATION). מסלול ההמשך אחרי FADE לא הוגדר. הסעיף אינו פותר זאת. ההתנהגות ב-`4499671`:
+>     - **מסלול fixture של FADE (F20 → F21; SOURCE-INSPECTED):** `RECHECK_AFTER_FADE` עצמו מצליח: `TARGET_RECHECK → TARGET_PROPOSED` (PROCEED), `allowedNextActions = [RESOLVE_PLANNING]`. ה-dead end הוא בשלב הבא, פתרון ה-Planning ל-Target החדש: אין מקור מאושר ל-Target הבא.
+>     - **מסלול ציבורי (RUNTIME-VERIFIED, RT-01, `390/A38` → `390/A39`):** ב-public scenario set (`PUBLIC_DOWNSTREAM_SCENARIO_IDS`) אין תרחיש recheck. הלחיצה על `RECHECK_AFTER_FADE` מחזירה `technical_error`; המצב נשאר `TARGET_RECHECK`; אפס פעולות.
+3018c3189
+< ללא שינוי מ־v0.7.
+---
+> **v0.11 sync:** מסונכרן ל-OBSERVATION_SCHEMA_v0_10 ול-REV3 (§1, §5, §8, §13, §14) כפי שוחרר ב-`4499671`. **`skipped_setup` הוסר** (REV3 §14; שינוי שובר מכוון, בלי מיפוי מערכים ישנים). הקשר והכנה מיוצגים רק דרך `contextFacts`.
+3045,3049c3216,3217
+<     | "early_entry"
+<     | "repeated_before_wait"
+<     | "took_over_before_wait"
+<     | "skipped_setup"
+<     | "unplanned_takeover_after_wait";
+---
+>     NotHeldReason;                    // early_entry | repeated_before_wait | took_over_before_wait
+>                                       // | unplanned_takeover_after_wait | malformed_step_after_wait (§9.1)
+3063c3231
+<     attemptValidity:
+---
+>     attemptValidity:                  // valid = usable as evidence about the child (Observation v0.8+)
+3070c3238,3250
+<       | "parent_unmeasurable";
+---
+>       | "parent_unmeasurable"         // V4 · reset · V7 · C2/V6c + qualifying G5 fact
+>       | "cue_not_received"            // v0.11 sync · C2 (V6b)
+>       | "planned_change_response"     // v0.11 sync · C1 (§3ג)
+>       | "opportunity_unknown";        // v0.11 sync · V6c
+> 
+>     practiceAsPlanned?:               // v0.11 sync · G2
+>       PracticeAsPlanned;
+> 
+>     contextFacts?:                    // v0.11 sync · G2a, exactly as reported
+>       ContextFactId[];
+> 
+>     cueResetAfterSeen?: true;         // v0.11 sync · LH-B2-02 only, never with a C2 fact
+>     ranDifferentPlan?: true;          // v0.11 sync · V7
+3096c3276,3299
+< Common Observation refinements ו־target-only refinements נשארים ללא שינוי.
+---
+> **Common refinements (released):**
+> - `held` → אין `notHeldReason`, אין `cueResetAfterSeen`, אין `ranDifferentPlan`.
+> - `not_held` → בדיוק אחד מ: `notHeldReason` · `cueResetAfterSeen` · `ranDifferentPlan`.
+> - `breakdownObserved` רק כש-`successSignalMet = no`.
+> 
+> **Target-only refinements (released):**
+> - `valid` → אין `invalidReason`; `invalid` → `invalidReason` חובה.
+> - `contextFacts`: ייחודיים; `unknown` לבד; `child_chose_other_garment` ו-`clothes_not_prepared` לא יחד; לא C2 יחד עם `cueResetAfterSeen`.
+> - `contextFacts` לא ריק ⇒ `practiceAsPlanned = no`.
+> - `cueResetAfterSeen` ⇒ `invalidReason = parent_unmeasurable`.
+> - `notHeldReason = malformed_step_after_wait` ⇒ `actualSupportLevel ≠ plannedSupportLevel` (הגיע escalation step).
+> 
+> **Evidence-usability derivation (REV3 §5; first match wins; engine-owned):**
+> 1. `runtime_fallback` → invalid.
+> 2. `constrained` → invalid.
+> 3. fact של C1 → invalid `planned_change_response`, גם עם fact מזכה ב-G5.
+> 4. fact מזכה ב-G5 (`repeated_before_wait` / `early_entry` / `took_over_before_wait` / V7 / reset) → invalid `parent_unmeasurable`.
+> 5. fact של C2 → invalid `cue_not_received`.
+> 6. G2 = unknown, או G2a = [`unknown`] → invalid `opportunity_unknown`.
+> 7. אחרת → valid (כולל V6a בלבד, V5, V5b, V5c).
+> 
+> נדחה לפני הגזירה: C1 + C2; `cueResetAfterSeen` + C2.
+> 
+> **Observation creation (REV3 §8, §9):** G1 = yes ודוח שלם → Observation target אחת שנבנית מהתשובות. G1 = no → אין Observation (`practice_not_occurred`, §42). דוח לא מספיק → אין Observation. ביום C2, הפעלה מחדש של הטיימר היא restart ולא reset: לא נרשם `cueResetAfterSeen` ו-`parentHeldPlan` נקבע רק משורת G5 שנבחרה.
+3140c3343
+< ללא שינוי.
+---
+> **v0.11 sync:** מסונכרן ל-PROGRESS_KEEP_ADJUST_FADE_v0_3_3 ול-REV3 §11, §12, §12a, §15 כפי שוחרר ב-`4499671`. ההחלטות KEEP / ADJUST / FADE וסיבותיהן לא השתנו.
+3147c3350
+<       sourceObservationRefs: string[];
+---
+>       sourceObservationRefs: string[];   // valid target Observations only (may be empty)
+3160c3363
+<       sourceObservationRefs: string[];
+---
+>       sourceObservationRefs: string[];   // valid target Observations only (may be empty)
+3169a3373
+>       ruleFiveWindowRefs?: string[];     // v0.11 sync · 1..4 · exactly on ADJUST(parent_execution_block)
+3175c3379
+<       sourceObservationRefs: string[];
+---
+>       sourceObservationRefs: string[];   // valid target Observations only
+3184a3389,3419
+> **Provenance rules (REV3 §12a, §15):**
+> - `sourceObservationRefs` = provenance של ראיית Progress: target Observations עם `attemptValidity = valid` בלבד. אף ref לא invalid.
+> - `ruleFiveWindowRefs` קיים **רק** כש-`decision = ADJUST` ו-`reason = parent_execution_block`, ואסור בכל snapshot אחר (schema refinement). תוכן: עד 4 הרשומות האחרונות שזכאיות ל-Rule 5, לפי סדר זמן. מספר הרשומות `parent_unmeasurable` בו הוא המונה של ההחלטה (לפחות 3).
+> - רשומת C1 (`planned_change_response`) לעולם לא ב-`ruleFiveWindowRefs`. רשומת C2 מופיעה שם רק כ-`parent_unmeasurable` (C2 + fact מזכה ב-G5). רשומות שקופות ל-Rule 5 לא מופיעות באף שדה.
+> 
+> **Real calculation (Progress v0.3.3 §3–§7):**
+> - Window: 4 הרשומות ה-valid האחרונות; מינימום 4.
+> - FADE: לפחות 3 מתוך 4 at-target, והאחרונה at-target.
+> - ADJUST: לפחות 3 מתוך 4 off-target, והאחרונה off-target. סיבות: `support_insufficient` / `breakdown_shifted` / `capability_recheck` (ADJUST שני על אותו Target).
+> - KEEP: `insufficient_evidence` / `mixed`.
+> - Staleness: יותר מ-14 ימים קלנדריים בלי רשומה valid → ה-Window מתרוקן.
+> 
+> **Rule 5 (Progress v0.3.3 §5; REV3 §12) — מנגנון נפרד:**
+> 
+> | רשומה | `invalidReason` | slot | numerator |
+> |---|---|---|---|
+> | valid (V5, V5b, V5c, V6a, V8) | — | 1 | 0 |
+> | V4 · reset (LH-B2-02, לא ביום C2) · V7 · V6c/C2 + fact מזכה ב-G5 | `parent_unmeasurable` | 1 | 1 |
+> | C1 (עם או בלי fact מזכה ב-G5) | `planned_change_response` | 0 (שקוף) | 0 |
+> | C2 בלי fact מזכה ב-G5 | `cue_not_received` | 0 (שקוף) | 0 |
+> | V6c בלי fact מזכה ב-G5 | `opportunity_unknown` | 0 (שקוף) | 0 |
+> | `runtime_fallback` / `constrained` / evidence | כשמם | 0 (שקוף) | 0 |
+> 
+> - חלון: 4 הרשומות האחרונות שזכאיות ל-Rule 5 על ה-Target הפעיל. סף: לפחות 3 מתוך 4. פלט: ADJUST(`parent_execution_block`).
+> - snapshot נוצר ביום non-evidence רק כש-Rule 5 יורה (REV3 §15).
+> 
+> **Measured attempt (REV3 §11) — נגזר, לא נשמר:**
+> - הגדרה: מספר ה-target Observations עם `attemptValidity = valid` על ה-PlanningInstance הפעיל.
+> - לא מתקדם ב: יום no-practice, יום non-evidence (כולל V4, reset ו-V7), דוח insufficient או abandoned, ניסיון שנקטע ב-Safety.
+> - **נפרד מ-Rule 5:** לרשומה יכולים להיות measured attempt 0 ו-Rule 5 slot 1 / numerator 1. נפרד גם מה-Progress Window.
+> 
+3950a4186,4191
+> **v0.11 sync · `no_practice` (REV3 §9):** `SUBMIT_CHECKIN` עם G1 = no מחזיר `practice_not_occurred { pendingCheckinRef }`.
+> - ה-PendingCheckin הפעיל עובר ל-`no_practice` ונסגר; `activePendingCheckinRef` הופך ל-null.
+> - PENDING_CHECKIN → PLAN_READY: אותו Target, אותו PlanningInstance; `allowedNextActions` של PLAN_READY.
+> - אין Observation, אין ProgressSnapshot, אין measured attempt, לא נכנס ל-Rule 5. Staleness לא מתארך ולא מתקצר.
+> - `pendingCheckinRef` חייב להיות ה-PendingCheckin הפעיל.
+> 
+3963c4204,4205
+<     | "abandoned";
+---
+>     | "abandoned"
+>     | "no_practice";                  // v0.11 sync · REV3 §9
+3977a4220,4221
+> **Wire version:** `contractVersion: "0.10"` בכל envelope (וב-`CommandContext`). זו גרסת ה-wire המשוחררת, והיא מכסה את ה-shapes שמתועדים במסמך v0.11 זה. אין bump ב-runtime. מדיניות versioning של ה-wire = follow-up נפרד (GOVERNANCE / IMPLEMENTATION).
+> 
+4160a4405
+>     // v0.11 sync: the released envelope refinements E1–E7 below.
+4164a4410,4418
+> **Envelope refinements (released, v0.11 sync):**
+> - **E1.** `status = ok` ⇒ `provenance.engineVersion ≠ null`.
+> - **E2.** `HomeProjection` מוחזר רק עם `continuity_result` עבור PLAN_READY / ATTEMPT_IN_PROGRESS / PENDING_CHECKIN; `homeCard` תואם ל-`requiredApplicationState`; `primaryActionId` נמצא ב-`allowedNextActions`. `continuity_result` מחוץ למצבי Home → `presentation = null` (§24.4).
+> - **E3.** `ProgressProjection` מוחזר **רק** עם `progress_result` (§24.5).
+> - **E4.** `ProgressProjection.progressDecision = ProgressSnapshot.decision` של אותה תשובה; `reflection.sourceRef = progressSnapshotRef` כשה-reflection קיים.
+> - **E5.** `fadePresentation ≠ null` ⇒ `RECHECK_AFTER_FADE` נמצא ב-`allowedNextActions`.
+> - **E6.** `ParentReflectionProjection.sourceRef` תואם ל-`canonicalResult` של אותה תשובה: `observation_created` → `attempt`; `progress_result` → `progress`; `no_observation_created(target_checkin)` → `report_unresolved` (§24.3).
+> - **E7.** `runtime_action_ready` עם `RuntimeProjection`: `ifNotStart = []` בדיוק כש-`currentAction.source = post_measurement_completion`, ואז `actionText = currentAction.resolvedText` (§4.3 item 10).
+> 
+4229a4484,4496
+> ## Check-in results and Progress (v0.11 sync)
+> 
+> | canonicalResult | presentation |
+> |---|---|
+> | `practice_not_occurred` | **null** (REV3 §9). מחרוזת המסך היא application copy, לא PresentationPayload |
+> | `observation_created` (valid) | `ParentReflectionProjection(attempt)` כשקיימת שורה מאושרת, אחרת null |
+> | `observation_created` (non-evidence) | null (REV3 §16). חריג אחד: יום V4 שבו Rule 5 יורה מקבל reflection מסוג `not_held.*` כשקיימת שורה מאושרת (REV3 §19) |
+> | `no_observation_created(target_checkin)` | `ParentReflectionProjection(report_unresolved)` כשקיימת שורה מאושרת, אחרת null |
+> | `no_observation_created(assessment_evidence)` · `morning_task_mismatch_clarification_required` | null |
+> | `progress_result` | `ProgressProjection` או null (§24.5, §44 E3–E5) |
+> 
+> ---
+> 
+4948a5216,5241
+> **v0.11 sync (released additions, `4499671`):**
+> 
+> | Type | TS Shape | Zod | Parent-renderable | Status | Source |
+> |---|---|---|---|---|---|
+> | InterventionId (+DR-B1-01)             | YES | YES | NO  | CHANGED | §4.3, §12 |
+> | ResolvedSetupComponent (+SETUP-DR-CLOTHES-ORDERED) | YES | YES | NO | CHANGED | §12 |
+> | CompressedRuntimeAction (+post_measurement_completion) | YES | YES | NO | CHANGED | §12 |
+> | ResolvedChainTerminal (+action)        | YES | YES | NO  | CHANGED | §12 |
+> | RuntimeCursor (engine state, not wire) | YES | —   | NO  | NEW     | §12 |
+> | PlanningInstance (+resolvedPostMeasurementCompletion, guardrail nullable) | YES | YES | NO | CHANGED | §15 |
+> | EndRuntimeCompletionKind (+stop_measurement) | YES | YES | NO | CHANGED | §5, §10 |
+> | AllowedNextAction (+allowedCompletionKinds) | YES | YES | NO | CHANGED | §5 |
+> | ReportRuntimeNoStartCommand            | YES | YES | NO  | NEW     | §10 |
+> | SubmitSceneCommand (+declaredTask)     | YES | YES | NO  | CHANGED | §10, §4.4 |
+> | FirstPlan / PreDay / RuntimeProjection (+safetyStopText; guardrail nullable; runtime ifNotStart may be []) | YES | YES | YES | CHANGED | §19–§21 |
+> | ObservableAnswer (+multi_choice)       | YES | YES | NO  | CHANGED | §9 |
+> | ContextFactId · PracticeAsPlanned · NotHeldReason | YES | YES | NO | NEW | §9.1 |
+> | TargetObservation (+practiceAsPlanned, contextFacts, cueResetAfterSeen, ranDifferentPlan; invalidReason +3; −skipped_setup) | YES | YES | NO | CHANGED | §28 |
+> | ProgressSnapshot (+ruleFiveWindowRefs) | YES | YES | NO  | CHANGED | §30 |
+> | PendingCheckin.status (+no_practice)   | YES | YES | NO  | CHANGED | §42 |
+> | TargetProposal / ActiveTarget (+support actions) | YES | YES | NO | CHANGED | §11, §24.5 |
+> | ProgressProjection                     | YES | YES | YES | NEW     | §22, §24.5 |
+> | MorningTaskMismatchClarificationRequired | YES | YES | NO | NEW   | §40 |
+> | NoObservationCreatedResult (+declared_task_kept branch) | YES | YES | NO | CHANGED | §40 |
+> | PracticeNotOccurredResult              | YES | YES | NO  | NEW     | §40 |
+> 
+5166a5460,5477
+> **v0.11 sync (released, `4499671`).** השורה "Target Observation `PENDING_CHECKIN → LEARNING_RESULT`" למעלה מוחלפת בניתוב לפי REV3 §15:
+> 
+> | Result / command | Transition | allowedNextActions |
+> |---|---|---|
+> | Target Observation · `valid` | `PENDING_CHECKIN → LEARNING_RESULT` | `EVALUATE_PROGRESS` |
+> | Target Observation · invalid `parent_unmeasurable`, Rule 5 fires | `PENDING_CHECKIN → LEARNING_RESULT` | `EVALUATE_PROGRESS` → ADJUST(`parent_execution_block`) |
+> | Target Observation · invalid `parent_unmeasurable`, Rule 5 does not fire | `PENDING_CHECKIN → PLAN_READY` · non-evidence result, no snapshot | PLAN_READY actions |
+> | Target Observation · any other invalid (C1, C2, V6c, …) | `PENDING_CHECKIN → PLAN_READY` · non-evidence result, no snapshot | PLAN_READY actions |
+> | `practice_not_occurred` (G1 = no) | `PENDING_CHECKIN → PLAN_READY` · PendingCheckin `no_practice` | PLAN_READY actions |
+> | `morning_task_mismatch_clarification_required` | `ASSESSING/COVERAGE_GAP → ASSESSING` · no scope / knowledge / Target | `ANSWER_ASSESSMENT_CLARIFICATION` |
+> | mismatch → `confirm_classified_task` | the existing assessment route of the classified task | per route |
+> | mismatch → `keep_declared_task` | `ASSESSING → ASSESSING` · `no_observation_created(assessment_evidence, declared_task_kept_new_description_required)` | `SUBMIT_SCENE` |
+> | `REPORT_RUNTIME_NO_START` | `ATTEMPT_IN_PROGRESS → ATTEMPT_IN_PROGRESS` · same AttemptSession, cursor +1, new `runtimeActionRef` | by cursor (§4.3 item 9) |
+> | `END_RUNTIME_ATTEMPT(stop_measurement)` | `ATTEMPT_IN_PROGRESS → ATTEMPT_IN_PROGRESS` · cursor → `post_measurement_completion` | `END_RUNTIME_ATTEMPT [normal_end, user_ended]` |
+> | `END_RUNTIME_ATTEMPT(normal_end / user_ended)` | `ATTEMPT_IN_PROGRESS → PENDING_CHECKIN` (`attempt_completed`) | `SUBMIT_CHECKIN` |
+> | ADJUST → `REPLAN_AFTER_ADJUST` with no replan source (LH-B2-02 and K2 / DR-B1-01) | `REPLANNING → COVERAGE_GAP(adjust_replanning)` · active Target kept | `[]` (§37.2) |
+> | FADE → `RECHECK_AFTER_FADE` | `TARGET_RECHECK → TARGET_PROPOSED` (PROCEED) where a recheck scenario exists; see OD-P1-09 in §24.5 for the released public path | `RESOLVE_PLANNING` |
+> 
+5199,5200c5510,5511
+< 29. KEEP / ADJUST / FADE semantics are unchanged.
+< 30. Evidence / Target Observation semantics are unchanged.
+---
+> 29. KEEP / ADJUST / FADE are computed per Progress v0.3.3 as released in REV3: the real calculation over valid records, plus Rule 5 (§30).
+> 30. Target Observation semantics follow Observation v0.10 and REV3: `attemptValidity` = evidence usability; `invalidReason` = family; `contextFacts` = reported detail (§28).
+5202,5204c5513,5515
+< 32. Application States are unchanged.
+< 33. Command list changes only by `RECORD_CHILD_PREPARATION_PRESENTED` (v0.10).
+< 34. Canonical Result families change only by `coverage_gap` rename and `child_preparation_presented` (v0.10).
+---
+> 32. Application States are the twelve in `ApplicationStateName`. Neither the v0.10 deltas nor REV3 add a state.
+> 33. The command list is §10: v0.10 adds `RECORD_CHILD_PREPARATION_PRESENTED`; K2 (§4.3) adds `REPORT_RUNTIME_NO_START`.
+> 34. Canonical Result families are §39: v0.10 renames `coverage_gap` and adds `child_preparation_presented`; PR-B (§4.4) adds `morning_task_mismatch_clarification_required`; REV3 adds `practice_not_occurred`.
+5252a5564,5578
+> **v0.11 sync · REV3 invariants (released):**
+> 
+> R1. Practice occurring is not Progress evidence. G1 = no creates no Observation, no ProgressSnapshot and no measured attempt; the PendingCheckin closes as `no_practice` (§42).
+> R2. The measured attempt is derived (valid target Observations on the active PlanningInstance) and never stored. No-practice, non-evidence, insufficient, abandoned and Safety-interrupted attempts do not advance it.
+> R3. Rule 5 is separate from the measured attempt and from the Progress Window. A record may have measured attempt 0 and Rule 5 slot 1 / numerator 1.
+> R4. `sourceObservationRefs` holds valid target Observations only.
+> R5. `ruleFiveWindowRefs` exists exactly on ADJUST(`parent_execution_block`): 1–4 Rule-5-eligible refs, numerator ≥ 3, every ref resolves.
+> R6. No `planned_change_response` (C1) record is ever in `ruleFiveWindowRefs`. A C2 record appears there only as `parent_unmeasurable`.
+> R7. A ProgressSnapshot on a non-evidence day exists only when Rule 5 fires.
+> R8. `contextFacts`: `unknown` is exclusive; C1 + C2 never coexist; `cueResetAfterSeen` never coexists with a C2 fact; `cueResetAfterSeen` occurs only on LH-B2-02.
+> R9. `not_held` carries exactly one of `notHeldReason` / `cueResetAfterSeen` / `ranDifferentPlan`; `held` carries none.
+> R10. `skipped_setup` is not a `notHeldReason` value. Setup and context travel only in `contextFacts`.
+> R11. `malformed_step_after_wait` requires an escalation step (`actual-help ≠ planned_support`).
+> R12. A non-evidence day keeps the same Target and the same PlanningInstance, and shows no KEEP / ADJUST / FADE card and no reflection.
+> 
+5296c5622,5630
+< `bankVersion`, `templateVersion`, `presentationVersion` and provenance must identify the v0.9 source set rather than generic fixture values.
+---
+> `bankVersion`, `templateVersion`, `presentationVersion` and provenance must identify the released source set of the fixture's template, not generic values. **Released metadata (`4499671`), recorded as is:**
+> 
+> | Template | `templateVersion` | `bankVersion` | `professionalSourceRefs` |
+> |---|---|---|---|
+> | LH-B2-02 (LH) | `LH-B2-02@0.9` | `0.9` | Bank leaving_home B2 0.9 · FIRST_PLAN 0.4 · PRE_DAY 0.4 |
+> | DR-B1-01 (K2) | `DR-B1-01@0.6` | `0.6` | Bank dressing/bag_items 0.6 · KGR 0.5 (KG-002, KG-009, KG-011) · INDEPENDENCE_TARGET 0.6 §5.1 · FIRST_PLAN 0.5 · PRE_DAY 0.5 |
+> | ParentReflectionProjection | — | `PARENT_LEARNING_LH_B2@0.3` | — |
+> 
+> Current Professional sources are newer (Bank LH v0.10, Bank dressing v0.7, KGR v0.6). The contract does not change released metadata.
+5375c5709
+< **Changed:** אשרור governance של §4.3, §4.4, §24.5 (03.10.2026); sync גוף החוזה (§22, §39, §40, §41, SUBMIT_SCENE, TargetProposal, ActiveTarget); sync של `practice_not_occurred` (REV3 §9, משוחרר); citations נוכחיים; הסרת נעילות copy מתוך החוזה; §67 שורות 13–15 ו-§67.1.
+---
+> **Changed:** אשרור governance של §4.3, §4.4, §24.5 (03.10.2026); sync גוף החוזה (§22, §39, §40, §41, SUBMIT_SCENE, TargetProposal, ActiveTarget); sync של `practice_not_occurred` (REV3 §9, משוחרר); **REV3 full sync:** §5, §9, §10, §12, §15, §16.1, §19–§21, §28, §30, §42–§45, §58, §61–§63, §7.1; citations נוכחיים; הסרת נעילות copy מתוך החוזה; §67 שורות 13–15 ו-§67.1.
+5434c5768,5769
+< NEW SEMANTICS: NONE
+---
+> NEW SEMANTICS: NONE (body synchronized to released / canonical truth: §4.3–§4.4 K2 / PR-B, PR-F, REV3)
+> WIRE contractVersion: "0.10" (unchanged) · DOCUMENT VERSION: v0.11
+5468c5803
+< | 1 | Header: v0.11 RECONCILED DRAFT; status; supersedes שני עותקי v0.10 אחרי קבלה; Provenance note | header | governance |
+---
+> | 1 | Header: v0.11 RECONCILED DRAFT; status; supersedes שני עותקי v0.10 אחרי קבלה; Provenance note; document version v0.11 / wire `"0.10"` | header, §43 | governance |
+5470,5474c5805,5809
+< | 3 | Citations: Bank dressing/bag_items v0.7, KGR v0.6; `bankVersion = "0.6"` נשמר כ-RELEASED METADATA VALUE; PARENT-VISIBLE SEMANTIC DIFFERENCE: NONE FOUND | §4.2, §4.3 | citation |
+< | 4 | תוויות "עדיין אין התחלה" ו-"בהמשך": מ"תווית Voice מאושרת" ל-RELEASED PRESENTATION VALUE, COPY OWNER VOICE / PRODUCT PRESENTATION | §4.3 item 7, §4.4 | copy de-lock |
+< | 5 | `progressDecisionLabel` ו-FADE copy: סמנטיקה בחוזה; מחרוזות = RELEASED PRESENTATION VALUE; ADJUST = SOURCE TRACE REQUIRED; הערך המשוחרר נשאר | §24.5 | copy de-lock |
+< | 6 | הבהרה: ProgressProjection נמסר ב-`envelope.presentation` של `progress_result` | §24.5, §40 | clarification |
+< | 7 | הערת OD-P1-09 אחרי FADE | §24.5 | open item |
+---
+> | 3 | Citations: Bank dressing/bag_items v0.7, KGR v0.6; `bankVersion = "0.6"` נשמר כ-RELEASED METADATA VALUE; PARENT-VISIBLE SEMANTIC DIFFERENCE: NONE FOUND; Observation v0.10 | §4.2, §4.3 | citation |
+> | 4 | תוויות "עדיין אין התחלה" ו-"בהמשך": RELEASED PRESENTATION VALUE, COPY OWNER VOICE / PRODUCT PRESENTATION | §4.3 item 7, §4.4 | copy de-lock |
+> | 5 | `progressDecisionLabel` ו-FADE copy: סמנטיקה בחוזה; מחרוזות = RELEASED PRESENTATION VALUE; RUNTIME VALIDATION: CURRENTLY EXISTS; COPY OWNER: VOICE / PRODUCT PRESENTATION; ADJUST = SOURCE TRACE REQUIRED | §24.5 | copy de-lock |
+> | 6 | ProgressProjection נמסר ב-`envelope.presentation` של `progress_result`; הכלל מתועד ב-envelope refinements | §24.5, §40, §44 | clarification |
+> | 7 | OD-P1-09: תיאור מדויק לפי מסלול (fixture F20→F21 מול מסלול ציבורי, RT-01) | §24.5, §61 | open item |
+5478,5481c5813,5829
+< | 11 | `MORNING_TASK_MISMATCH_CLARIFICATION_REQUIRED` family; `MorningTaskMismatchClarificationRequired` type; ענף `declared_task_kept_new_description_required` ב-NoObservationCreatedResult | §39, §40, §41 | body sync |
+< | 12 | §65 v0.11 boundary; §66 v0.11 draft gate; §67 שורות 13–15 | §65–§67 | maintenance |
+< 
+< | 13 | `practice_not_occurred`: `PRACTICE_NOT_OCCURRED` family, `PracticeNotOccurredResult` type, member ב-CanonicalResult. **CONTRACT SYNCHRONIZATION WITH EXISTING CANONICAL / RELEASED TRUTH** (REV3 §9; `4499671`). אין שינוי סמנטי ואין התנהגות הצגה חדשה (REV2) | §39, §40, §41 | body sync |
+---
+> | 11 | `MORNING_TASK_MISMATCH_CLARIFICATION_REQUIRED` family; `MorningTaskMismatchClarificationRequired` type; ענף `declared_task_kept_new_description_required` | §39, §40, §41 | body sync |
+> | 12 | `practice_not_occurred`: family, type, member. CONTRACT SYNCHRONIZATION WITH EXISTING CANONICAL / RELEASED TRUTH (REV3 §9) | §39, §40, §41 | body sync |
+> | 13 | K2 body types: `InterventionId` (+DR-B1-01), `SETUP-DR-CLOTHES-ORDERED`, `post_measurement_completion`, terminal `action`, `RuntimeCursor`, `resolvedPostMeasurementCompletion`, `resolvedGuardrail` nullable | §12, §15, §16.1 | body sync |
+> | 14 | `REPORT_RUNTIME_NO_START` (command, name, action id); `EndRuntimeCompletionKind` + `stop_measurement`; `AllowedNextAction.allowedCompletionKinds` | §5, §10 | body sync |
+> | 15 | `safetyStopText` ב-First Plan / Pre-Day / Runtime; `guardrailText` nullable; Runtime `ifNotStart` בלי `.min(1)` | §19–§21 | body sync |
+> | 15a | Forbidden tokens: `DR-B1-`, `STOP_MEASUREMENT`, `post_measurement` (§4.3 item 12). פער מול רשימת ה-runtime נרשם, לא הוכרע | §16 | body sync · divergence recorded |
+> | 16 | `ObservableAnswer.multi_choice`; מודל דוח ה-check-in ו-refinements של REV3 | §9, §9.1 | body sync · REV3 |
+> | 17 | Observation: הסרת `skipped_setup`; `invalidReason` +`cue_not_received` +`planned_change_response` +`opportunity_unknown`; `practiceAsPlanned`, `contextFacts`, `cueResetAfterSeen`, `ranDifferentPlan`; refinements; גזירת evidence usability | §28 | body sync · REV3 |
+> | 18 | ProgressSnapshot `ruleFiveWindowRefs`; כללי provenance; Rule 5; measured attempt | §30 | body sync · REV3 |
+> | 19 | `PendingCheckin.status = no_practice` וכלל הסגירה | §42 | body sync · REV3 |
+> | 20 | Envelope refinements E1–E7 המשוחררים | §44 | body sync |
+> | 21 | Presence: `practice_not_occurred` → null; observation / progress / mismatch | §45 | body sync · REV3 |
+> | 22 | Type registry לכל התוספות המשוחררות | §58 | body sync |
+> | 23 | Transitions: ניתוב Target Observation, `practice_not_occurred`, mismatch, `keep_declared_task`, `REPORT_RUNTIME_NO_START`, `stop_measurement`, ADJUST coverage gap (LH + K2), recheck | §61 | body sync |
+> | 24 | Invariants #29, #30, #32, #33, #34 הוחלפו; R1–R12 של REV3 נוספו | §62 | body sync · REV3 |
+> | 25 | §63: הוסרה הדרישה ש-`bankVersion` יזהה את סט v0.9; metadata משוחרר מתועד; §7.1 קיבל הערת sync | §7.1, §63 | maintenance |
+> | 26 | §65 v0.11 boundary; §66 v0.11 draft gate; §67 שורות 13–15; טבלה זו | §65–§67 | maintenance |
+5483,5485c5831
+< **הערות עקביות לביקורת העצמאית (לא שונו ב-REV2, מחוץ להיקף ההוראה):**
+< - §42 `PendingCheckin.status` אינו כולל `"no_practice"`, אף ש-`practice_not_occurred` סוגר את ה-PendingCheckin בסטטוס זה ב-runtime (`schemas.ts` L568).
+< - §6 ApplicationTransition ו-§45 Presentation Presence לא נבדקו מול `practice_not_occurred`.
+---
+> **Not changed (רשום ונשאר כמו שהוא):** מספור כפול של invariants 49–52 ב-§62 (קיים מ-v0.9); הקטעים ההיסטוריים של v0.9 / v0.10 ב-§65–§67.
