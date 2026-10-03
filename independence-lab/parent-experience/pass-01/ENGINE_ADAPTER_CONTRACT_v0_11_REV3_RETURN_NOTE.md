@@ -13,9 +13,9 @@
 
 | File | Bytes | SHA-256 |
 |---|---|---|
-| `ENGINE_ADAPTER_CONTRACT_v0_11_RECONCILED_DRAFT_REV3.md` | 179,779 | `34dba764a84c0aba9738c58802400e3d8de71a5630474230c7ac706753f76073` |
-| `audit-evidence/contract-v0_11/v0_10_repo_to_v0_11_REV3.diff` | — | `89c65b30ae3f7eeb60f46c03c20a35c78807f2bc337e3b83b8c8f9f74619c961` |
-| `audit-evidence/contract-v0_11/v0_11_REV2_to_REV3.diff` | — | `70f4b15a219d5b34493c80f3c1b329c7268ca40b63314d5830537ad0c07a9c81` |
+| `ENGINE_ADAPTER_CONTRACT_v0_11_RECONCILED_DRAFT_REV3.md` | 180,303 | `1b0a09f9dd5faf73eff269a5387f9b7a3eab1ef5fb300b4c6e1f4752371821c8` |
+| `audit-evidence/contract-v0_11/v0_10_repo_to_v0_11_REV3.diff` | — | `eaaf7114d86318d41b1b47fb749130eca80f2f1dd660eddbbf70f1a02a73d9c6` |
+| `audit-evidence/contract-v0_11/v0_11_REV2_to_REV3.diff` | — | `1b095d86e58e270b119f952e69983339f8506e990d0bbf9137d2ab3b9ffb39f1` |
 
 - REV2 is kept unchanged as history: `ENGINE_ADAPTER_CONTRACT_v0_11_RECONCILED_DRAFT.md`, SHA-256 `7b653b83…`.
 - **Sync sources:**
@@ -34,7 +34,7 @@
 | 5 | DOCUMENT VERSION v0.11 / WIRE `"0.10"` + follow-up | **CLOSED** | Header, §43, §66 |
 | 6 | §63: remove the v0.9 `bankVersion` rule; record the released metadata | **CLOSED** | §63, §7.1 |
 | 7 | §67.1: table formatting, and every sync listed | **CLOSED** | §67.1, 27 rows (1–26 + 15a). The table check found no broken table |
-| 8 | OD-P1-09 precision | **CLOSED, with a discrepancy noted** (§3 below) | §24.5, §61 |
+| 8 | OD-P1-09 precision | **CLOSED** (path wording per Main CT clarification, §3 below) | §24.5, §61, §66, §67.1 |
 | 9 | Observation citation updated to v0.10; line references | **CLOSED** | §4.3 item 13 |
 
 ### REV3 sections synchronized
@@ -61,22 +61,25 @@
 | §19–§21 | `safetyStopText`; `guardrailText` nullable; Runtime `ifNotStart` may be `[]` |
 | §16 | K2 forbidden tokens |
 
-## 3. Discrepancy on fix 8 (OD-P1-09)
+## 3. OD-P1-09: two separate paths (Main CT clarification, applied)
 
-The instruction says `RECHECK_AFTER_FADE` succeeds on the released golden path, and that the dead end is at the next planning step. That is accurate for the **fixture FADE path** only.
+The contract no longer uses "released golden path". It records two separate paths:
 
-**Fixture FADE path:**
-- The path is F20 → F21, as configured in `createEngineAdapter.ts` L41.
-- `RECHECK_AFTER_FADE` → PROCEED → `TARGET_PROPOSED`, with `RESOLVE_PLANNING` offered.
-- 06 established this from source only (SOURCE-INSPECTED). 06 did not run this path.
+**PUBLIC PARENT PATH.** This is the authoritative Parent Experience runtime finding. RUNTIME-VERIFIED, RT-01, `390/A38` → `390/A39`.
+- FADE screen.
+- The parent presses the recheck CTA.
+- No public downstream recheck scenario exists.
+- `technical_error`.
+- The state stays `TARGET_RECHECK` with zero actions.
 
-**Public path, RUNTIME-VERIFIED (RT-01):**
-- `PUBLIC_DOWNSTREAM_SCENARIO_IDS` contains no recheck scenario (F21).
-- Clicking the button returns `technical_error`.
-- The screen stays on the `TARGET_RECHECK` title, "בודקים את הצעד הבא", with zero actions.
-- Evidence: `390/A38` → `390/A39` and `results-A-390.json`.
+**FIXTURE / DEMO PATH** (SOURCE-INSPECTED):
+- F20 → F21 → `TARGET_PROPOSED`.
+- `RECHECK_AFTER_FADE` succeeds on this path.
+- The failure comes later, at planning resolution.
 
-The contract records both, each with its verification class. The question for Main CT is which path "released golden path" refers to. The text is ready for either answer.
+**Classification:** PRODUCT ROUTING / COVERAGE GAP. This is not a REV3 semantic contradiction. No Code fix.
+
+**Where it is recorded:** §24.5, §61 (one row per path), §66 and §67.1 row 7.
 
 ## 4. Gaps recorded, not resolved
 
@@ -100,5 +103,5 @@ The contract records both, each with its verification class. The question for Ma
 
 | Comparison | Lines |
 |---|---|
-| v0.10 repo → REV3 | 611 (55 removed, 556 added) |
-| REV2 → REV3 | 468 |
+| v0.10 repo → REV3 | 612 (55 removed, 557 added) |
+| REV2 → REV3 | 471 |

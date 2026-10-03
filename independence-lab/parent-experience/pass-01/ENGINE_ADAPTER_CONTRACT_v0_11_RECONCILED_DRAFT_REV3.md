@@ -3086,9 +3086,9 @@ type ProgressProjection = {
 - אין ב-ProgressProjection רמה מספרית, אחוז, ציון, רצף, ספירת ניסיונות, סולם מלא, Target הבא או רמת העזרה הבאה.
 - **בלעדיות FADE:** ב-FADE `reflection` תמיד null, וה-FADE reflection לא מוצג יחד עם ה-ProgressProjection. ב-KEEP / ADJUST ה-reflection מוצג בתוך אותו משטח. מקור ה-reflection נשמר כהיסטוריה (`lastReflection` ב-Home).
 - אחרי FADE: `RECHECK_AFTER_FADE` → recheck קנוני. Target חדש מופיע רק אחרי Planning חדש. אין ירושה של copy מה-Target הקודם.
-  - **OPEN — OD-P1-09** (BLOCKED FOR IMPLEMENTATION). מסלול ההמשך אחרי FADE לא הוגדר. הסעיף אינו פותר זאת. ההתנהגות ב-`4499671`:
-    - **מסלול fixture של FADE (F20 → F21; SOURCE-INSPECTED):** `RECHECK_AFTER_FADE` עצמו מצליח: `TARGET_RECHECK → TARGET_PROPOSED` (PROCEED), `allowedNextActions = [RESOLVE_PLANNING]`. ה-dead end הוא בשלב הבא, פתרון ה-Planning ל-Target החדש: אין מקור מאושר ל-Target הבא.
-    - **מסלול ציבורי (RUNTIME-VERIFIED, RT-01, `390/A38` → `390/A39`):** ב-public scenario set (`PUBLIC_DOWNSTREAM_SCENARIO_IDS`) אין תרחיש recheck. הלחיצה על `RECHECK_AFTER_FADE` מחזירה `technical_error`; המצב נשאר `TARGET_RECHECK`; אפס פעולות.
+  - **OPEN — OD-P1-09** (BLOCKED FOR IMPLEMENTATION). **Classification: PRODUCT ROUTING / COVERAGE GAP — NOT A REV3 SEMANTIC CONTRADICTION.** מסלול ההמשך אחרי FADE לא הוגדר, והסעיף אינו פותר זאת. אין תיקון Code עדיין. ב-`4499671` יש שני מסלולים נפרדים:
+    - **PUBLIC PARENT PATH** (המסלול שההורה רואה; ממצא ה-runtime הסמכותי של Parent Experience; RUNTIME-VERIFIED, RT-01, `390/A38` → `390/A39`): מסך FADE → ההורה לוחץ על ה-CTA של ה-recheck → אין תרחיש downstream ציבורי ל-recheck (`PUBLIC_DOWNSTREAM_SCENARIO_IDS`) → `technical_error` → המצב נשאר `TARGET_RECHECK`, אפס פעולות (dead end).
+    - **FIXTURE / DEMO PATH** (SOURCE-INSPECTED): F20 → F21 → `TARGET_PROPOSED`. כאן `RECHECK_AFTER_FADE` מצליח (PROCEED, `allowedNextActions = [RESOLVE_PLANNING]`). הכשל מגיע בשלב הבא, פתרון ה-Planning שאחריו.
 
 ---
 
@@ -5473,7 +5473,8 @@ v0.9 ללא שינוי, מלבד שמות ה-Gap ומצבי המקור הנעו�
 | `END_RUNTIME_ATTEMPT(stop_measurement)` | `ATTEMPT_IN_PROGRESS → ATTEMPT_IN_PROGRESS` · cursor → `post_measurement_completion` | `END_RUNTIME_ATTEMPT [normal_end, user_ended]` |
 | `END_RUNTIME_ATTEMPT(normal_end / user_ended)` | `ATTEMPT_IN_PROGRESS → PENDING_CHECKIN` (`attempt_completed`) | `SUBMIT_CHECKIN` |
 | ADJUST → `REPLAN_AFTER_ADJUST` with no replan source (LH-B2-02 and K2 / DR-B1-01) | `REPLANNING → COVERAGE_GAP(adjust_replanning)` · active Target kept | `[]` (§37.2) |
-| FADE → `RECHECK_AFTER_FADE` | `TARGET_RECHECK → TARGET_PROPOSED` (PROCEED) where a recheck scenario exists; see OD-P1-09 in §24.5 for the released public path | `RESOLVE_PLANNING` |
+| FADE → `RECHECK_AFTER_FADE` · **PUBLIC PARENT PATH** | `technical_error`; state stays `TARGET_RECHECK` (no public recheck scenario) · OD-P1-09 | `[]` |
+| FADE → `RECHECK_AFTER_FADE` · **FIXTURE / DEMO PATH** (F20 → F21) | `TARGET_RECHECK → TARGET_PROPOSED` (PROCEED); the later planning resolution fails · OD-P1-09 | `RESOLVE_PLANNING` |
 
 ---
 
@@ -5769,7 +5770,7 @@ NEW SEMANTICS: NONE (body synchronized to released / canonical truth: §4.3–§
 WIRE contractVersion: "0.10" (unchanged) · DOCUMENT VERSION: v0.11
 NEW VOICE LOCKS: NONE · RELEASED STRINGS = RELEASED PRESENTATION VALUE ONLY
 ADJUST LABEL: COPY OWNER VOICE / PRODUCT PRESENTATION · SOURCE TRACE REQUIRED
-OPEN, NOT RESOLVED HERE: OD-P1-09 (FADE → recheck) · PB-01 / PB-02 (ADJUST coverage-gap routing) 
+OPEN, NOT RESOLVED HERE: OD-P1-09 (FADE → recheck; PRODUCT ROUTING / COVERAGE GAP; not a REV3 semantic contradiction) · PB-01 / PB-02 (ADJUST coverage-gap routing) 
 K2 BANK METADATA: RELEASED 0.6 · SOURCE v0.7 · PARENT-VISIBLE DIFFERENCE NONE FOUND · NOT BLOCKING
 CODE / REPO / DRIVE INDEX CHANGES: NONE UNTIL MAIN CT ACCEPTANCE
 ```
@@ -5806,7 +5807,7 @@ CODE / REPO / DRIVE INDEX CHANGES: NONE UNTIL MAIN CT ACCEPTANCE
 | 4 | תוויות "עדיין אין התחלה" ו-"בהמשך": RELEASED PRESENTATION VALUE, COPY OWNER VOICE / PRODUCT PRESENTATION | §4.3 item 7, §4.4 | copy de-lock |
 | 5 | `progressDecisionLabel` ו-FADE copy: סמנטיקה בחוזה; מחרוזות = RELEASED PRESENTATION VALUE; RUNTIME VALIDATION: CURRENTLY EXISTS; COPY OWNER: VOICE / PRODUCT PRESENTATION; ADJUST = SOURCE TRACE REQUIRED | §24.5 | copy de-lock |
 | 6 | ProgressProjection נמסר ב-`envelope.presentation` של `progress_result`; הכלל מתועד ב-envelope refinements | §24.5, §40, §44 | clarification |
-| 7 | OD-P1-09: תיאור מדויק לפי מסלול (fixture F20→F21 מול מסלול ציבורי, RT-01) | §24.5, §61 | open item |
+| 7 | OD-P1-09: שני מסלולים נפרדים, PUBLIC PARENT PATH (RT-01, סמכותי) ו-FIXTURE / DEMO PATH (F20→F21). סיווג: PRODUCT ROUTING / COVERAGE GAP, לא סתירה סמנטית ל-REV3 | §24.5, §61 | open item |
 | 8 | `SUBMIT_SCENE.payload.declaredTask: Task` | §10 | body sync |
 | 9 | `startingSupportAction`, `targetSupportAction` ב-TargetProposal / ActiveTarget | §11 | body sync |
 | 10 | `ProgressProjection` ב-PresentationPayload (type + zod) | §22 | body sync |
